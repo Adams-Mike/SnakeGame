@@ -16,6 +16,7 @@ public class SnakeGame {
         // TODO code application logic here
         double testNumber = 1234;
         double test2 = 73091823;
+        double test4 = 2342342;
     }
     
 }
