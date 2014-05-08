@@ -17,6 +17,7 @@ public class SnakeGame {
         double testNumber = 1234;
         double test2 = 73091823;
         double test4 = 2342342;
+        double test3 = 1231231231;
     }
     
 }
