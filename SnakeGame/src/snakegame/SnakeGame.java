@@ -15,6 +15,7 @@ public class SnakeGame {
     public static void main(String[] args) {
         // TODO code application logic here
         double testNumber = 1234;
+        double test2 = 73091823;
     }
     
 }
