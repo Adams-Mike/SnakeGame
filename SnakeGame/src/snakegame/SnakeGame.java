@@ -20,4 +20,9 @@ public class SnakeGame {
         double test3 = 1231231231;
     }
     
+    public static void test(){
+    
+}
+    
+    
 }
