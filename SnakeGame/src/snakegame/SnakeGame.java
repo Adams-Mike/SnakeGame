@@ -13,6 +13,13 @@ package snakegame;
 public class SnakeGame {
 
     public static void main(String[] args) {
+        
+        int age = 0;
+        int year = 0;
+        
+        
+        
+        
     
     }
     
