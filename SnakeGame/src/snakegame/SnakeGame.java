@@ -27,8 +27,16 @@ public class SnakeGame {
     public static void main(String[] args) {
         
         SnakeGame myGame = new SnakeGame();
+        Arena myGame2 = new Arena();
+        Menu myGame3 = new Menu();
+        PowerUps myGame4 = new PowerUps();
+        ScoreBoard myGame5 = new ScoreBoard();
+        
+        
         myGame.getName();
         myGame.displayHelp();
+        myGame3.printMenuInfo();
+        
         
     }
     
