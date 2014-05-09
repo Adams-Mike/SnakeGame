@@ -20,6 +20,7 @@ public class SnakeGame {
         double test2 = 73091823;
         double test4 = 2342342;
         double test3 = 1231231231;
+        int wow = 54545;
     }
     
     public static void test(){ 
