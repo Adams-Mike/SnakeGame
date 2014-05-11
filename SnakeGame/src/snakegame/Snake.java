@@ -27,8 +27,7 @@ public class Snake{
         }
         public void displaySnake() {
         System.out.println("Your Snake name is: " + this.snakeName + "!!!!!\nSsssssuper cool");
-        
-    }
+        }
                 
     }
     

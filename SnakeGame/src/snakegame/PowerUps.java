@@ -12,4 +12,23 @@ package snakegame;
  */
 public class PowerUps {
     
+    boolean invulnerability;
+    double speedMod;
+    
+    public void cheatMode(){
+        System.out.println("You now have invulnerability\n");
+        this.invulnerability = true;
+    }
+    
+    public void superSpeed() {
+        System.out.println("You now have super speed\n");
+        this.speedMod = 4;
+    }
+    
+    public void runPowerUps(){
+        cheatMode();
+        superSpeed();
+    }
+           
+    
 }

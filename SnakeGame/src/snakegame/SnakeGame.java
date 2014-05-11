@@ -36,8 +36,9 @@ public class SnakeGame {
         
         myGame.getName();
         myGame.displayHelp();
-        myGame3.printMenuInfo();
+        myGame3.displayMenu();
         myGame2.printArena();
+        myGame4.runPowerUps();
         myGame6.getSnakeName();
         myGame6.displaySnake();
     }
