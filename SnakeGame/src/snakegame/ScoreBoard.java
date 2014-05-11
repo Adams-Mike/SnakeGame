@@ -8,8 +8,14 @@ package snakegame;
 
 /**
  *
- * @author Michael
+ * @author Isail
  */
 public class ScoreBoard {
+    String Arena ="This is place for the arena:  [        ]";
+    String ArenaSizes = "The player can choose the size of the Arena";
     
+    public void printArena(){
+        System.out.println(this.Arena);
+        System.out.println(this.ArenaSizes);
+    }
 }

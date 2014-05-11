@@ -31,13 +31,15 @@ public class SnakeGame {
         Menu myGame3 = new Menu();
         PowerUps myGame4 = new PowerUps();
         ScoreBoard myGame5 = new ScoreBoard();
+        Snake myGame6 = new Snake();
         
         
         myGame.getName();
         myGame.displayHelp();
         myGame3.printMenuInfo();
-        
-        
+        myGame2.printArena();
+        myGame6.getSnakeName();
+        myGame6.displaySnake();
     }
     
     public void getName(){
