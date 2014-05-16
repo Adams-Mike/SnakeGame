@@ -43,16 +43,17 @@ public class ScoreBoard {
         int collectedApples;
         collectedApples = input.nextInt();
         
-        System.out.println("How many apples did you collect?: ");
+        System.out.println("How many grapes did you collect?: ");
         int collectedGrapes;
-        collectedApples = input.nextInt();
+        collectedGrapes = input.nextInt();
         
-        if(collectedOranges < 0 || collectedApples < 0 || collectedApples < 0){
+        if(collectedOranges < 0 || collectedApples < 0 || collectedGrapes < 0){
             playerScore = -999;
             System.out.println("Invalid Player Score or Input");
         }
         else{
-            playerScore += ((double)collectedOranges * orangePoints) + ((double)collectedApples * applePoints);
+            playerScore += ((double)collectedOranges * orangePoints) + ((double)collectedApples * applePoints) +
+                    ((double)collectedGrapes * grapePoints);
             System.out.println("Player 1 Score is now: " + playerScore);
         }
     }
