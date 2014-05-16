@@ -14,6 +14,7 @@ public class PowerUps {
     
     boolean invulnerability;
     double speedMod;
+    int healMe;
     
     public void cheatMode(){
         System.out.println("You now have invulnerability\n");
