@@ -21,6 +21,10 @@ public class Menu {
             + "High Scores: H\n"
             + "Quit: Q\n\n"
             + "Please make a selection: ";
+
+    public Menu() {
+        this.selection = " ";
+    }
     
     public void printMenuInfo(){
         System.out.println(this.info);
