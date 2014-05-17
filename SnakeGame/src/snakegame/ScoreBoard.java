@@ -43,9 +43,9 @@ public class ScoreBoard {
         int collectedApples;
         collectedApples = input.nextInt();
         
-        System.out.println("How many apples did you collect?: ");
+        System.out.println("How many grapes did you collect?: ");
         int collectedGrapes;
-        collectedApples = input.nextInt();
+        collectedGrapes = input.nextInt();
         
         if(collectedOranges < 0 || collectedApples < 0 || collectedApples < 0){
             playerScore = -999;
