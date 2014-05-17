@@ -28,7 +28,9 @@ public class Snake{
         public void displaySnake() {
         System.out.println("Your Snake name is: " + this.snakeName + "!!!!!\nSsssssuper cool");
         }
-    
+    /**
+     * @author Isail
+     */
         public void getSnakeSize(){
         int snakeLarge = 3;
         int growPoints = 1;
