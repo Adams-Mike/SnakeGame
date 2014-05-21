@@ -54,7 +54,7 @@ public class ScoreBoard {
         else{
             playerScore += ((double)collectedOranges * orangePoints) + ((double)collectedApples * applePoints) +
                     ((double)collectedGrapes * grapePoints);
-            System.out.println("Player 1 Score is now: " + playerScore);
+            System.out.println("Player 1 Score is now: " + playerScore + "\n");
         }
     }
         
