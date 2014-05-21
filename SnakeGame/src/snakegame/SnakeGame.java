@@ -43,6 +43,7 @@ public class SnakeGame {
         myGame5.highScores();
         myGame6.getSnakeName();
         myGame6.displaySnake();
+        myGame6.getSnakeSize();
     }
     
     public void getName(){
