@@ -15,17 +15,17 @@ import java.util.Scanner;
 public class HelpMenuView  {
         
     private final static String[][] menuItems = {
-        {"B", "The board"},
-        {"C", "A computer player"}, 
-        {"G", "The Snake game"},
-        {"L", "A location"},
-        {"M", "A marker"},
-        {"R", "A regular player"},        
+        {"A", "Arena"},
+        {"G", "Snake game"}, 
+        {"C", "CPU Player"},
+        {"S", "Snake"},
+        {"D", "Difficulty"},       
         {"Q", "Quit Help"}        
     };
     
+    
     // Create instance of the HelpMenuControl (action) class
-    private HelpMenuControl helpMenuControl = new HelpMenuControl();
+    private final HelpMenuControl helpMenuControl = new HelpMenuControl();
     
     // default constructor
     public HelpMenuView() {
@@ -47,33 +47,29 @@ public class HelpMenuView  {
             command = command.trim().toUpperCase();
             
             switch (command) {
-                case "B":
-                    this.helpMenuControl.displayBoardHelp();
-                    break;
-                case "C":
-                    this.helpMenuControl.displayComputerPlayerHelp();
+                case "A":
+                    this.helpMenuControl.displayArenaHelp();
                     break;
                 case "G":
                     this.helpMenuControl.displayGameHelp();
+                    break;
+                case "C":
+                    this.helpMenuControl.displayComputerPlayerHelp();
                     break;                  
-                case "L":
-                    this.helpMenuControl.displayLocationHelp();
+                case "S":
+                    this.helpMenuControl.displaySnakeHelp();
                     break;
-                case "M":
-                    this.helpMenuControl.displayMarkerHelp();
+                case "D":
+                    this.helpMenuControl.displayDifficultyHelp();
                     break;
-                case "R":
-                    this.helpMenuControl.displayRealPlayerHelp();
-                    break; 
-                case "Q": 
+                case "Q":
+                    this.helpMenuControl.displayQuitHelp();
                     break;
                 default: 
-                    new SnakeError().displayError("Invalid command. Please enter a valid command.");
-                    continue;
+                    new SnakeError().displayError("Invalid selection. Please select a valid command.");
             }
-        } while (!command.equals("Q"));  
-        
-         return;
+        } while (command!=("Q"));  
+       return;
     }
 
         // displays the help menu

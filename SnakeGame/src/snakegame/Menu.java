@@ -18,10 +18,15 @@ public class Menu {
     
     String info = "Menu\n\n"
             + "Start New Game: N\n"
-            + "High Scores: H\n"
-            + "Quit: Q\n\n"
+            + "High Scores: S\n"
+            + "Quit: Q\n"
+            + "Help: H\n\n"
             + "Please make a selection: ";
 
+    private final HelpMenuView helpMenuView = new HelpMenuView();
+    
+     
+    
     public Menu() {
         this.selection = " ";
     }
@@ -45,7 +50,7 @@ public class Menu {
                     System.out.println("This Should start a new game eventually\n");
                     correct = false;
                     break;
-                case "H":
+                case "S":
                     System.out.println("This Should show the high scores eventually\n");
                     correct = false;
                     break;
@@ -53,6 +58,9 @@ public class Menu {
                     System.out.println("This should quit eventually\n");
                     correct = false;
                     break;
+                case "H":
+                    this.helpMenuView.getInput();
+                    break;    
                 default:
                     System.out.println("Incorrect Selection.\n Try again.\n\n");
                     this.selection = input.next();
@@ -67,4 +75,8 @@ public class Menu {
         printMenuInfo();
         getUserInput();        
     }       
+
+    void selection() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

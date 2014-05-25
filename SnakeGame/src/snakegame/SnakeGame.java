@@ -22,7 +22,8 @@ public class SnakeGame {
             + "Use arrow keys or WASD to control the movement of the snake.\n"
             + "Try not to die, and collect as many points as you can.\n\n"
             + "GOOD LUCK!\n\n";
-    
+
+ 
         
     public static void main(String[] args) {
         
@@ -32,7 +33,7 @@ public class SnakeGame {
         PowerUps myGame4 = new PowerUps();
         ScoreBoard myGame5 = new ScoreBoard();
         Snake myGame6 = new Snake();
-        
+        HelpMenuView myGame7 = new HelpMenuView();
         
         myGame.getName();
         myGame.displayHelp();
@@ -56,5 +57,9 @@ public class SnakeGame {
     public void displayHelp() {
         System.out.println("\nWelcome " + this.name + "\n");
         System.out.println(this.instructions);
+    }
+
+    void instructions() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

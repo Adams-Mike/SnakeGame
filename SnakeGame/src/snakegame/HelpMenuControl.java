@@ -11,18 +11,19 @@ package snakegame;
  */
 public class HelpMenuControl  {
     
+    public static Menu menu = new Menu();
+    
     public HelpMenuControl() {
         
     } 
 
-    public void displayBoardHelp() {
+    public void displayArenaHelp() {
         System.out.println();
         this.displayHelpBorder();             
         System.out.println( 
-                "\tThe game board for Tic-Tac-Toe. It consist of a grid of "
-                + "\n\tlocations. Players place their marker on the different locations "
-                + "\n\ton the board in an effort to win the game. The default board is "
-                + "\n\t3 rows by 3 columns.");
+                "\tThe game board for Snake. It consist of a grid of "
+                + "\n\tsome size. Players move the snake to make points and eat fruits. "
+                + "\n\tThe default board is 10 X 10. ");
         displayHelpBorder();
     }
     
@@ -32,59 +33,56 @@ public class HelpMenuControl  {
         System.out.println();
         displayHelpBorder();     
         System.out.println( 
-                 "\tThe objective of the game is to be the first player to mark three "
-                + "\n\tsquares vertically, horizontally or diagonally. Each player takes "
-                + "\n\tturns placing their marker in one of the locations on the "
-                + "\n\tboard. The first player to get \"three-in-a-row\" is the winner."
+                 "\tThe objective of the game is to make more points than others "
+                + "\n\tand to that each snake must make points and eat fruits as much as possible."
+                + "\n\tEach player must to do it until your snake die or if you set a timer."
+                + "\n\tboard. The first player to make more points win the game and the right to eat the lossing snake."
                 ); 
         displayHelpBorder();
     }
-            
-    public void displayRealPlayerHelp() {
-        System.out.println();
-        displayHelpBorder();     
-        System.out.println( 
-                "\tA real player manually takes their turn by placing their mark "
-                + "\n\tin an unused location on the board."
-                ); 
-        displayHelpBorder();
-    }
-    
                    
     public void displayComputerPlayerHelp() {
         System.out.println();
         displayHelpBorder();     
         System.out.println( 
-                "\tA computer based player automatically takes its turn "
-                + "\n\timmediatly after a real player in a single player game."
+                "\tA computer can make player if the main player decided,  "
+                + "\n\tbut in can be hard some times to be it."
                 ); 
         displayHelpBorder();
     }
              
-    public void displayLocationHelp() {
+    public void displaySnakeHelp() {
         System.out.println();
         displayHelpBorder();     
         System.out.println( 
-               "\tA location on the board where a player can place their marker"
+               "\tThe Snake start with the size of three 'blocks' and after you go trough the game "
+                +"\n\tyou can change the 'skin' or the size when you get a certain level of points."
                 ); 
         displayHelpBorder();
     }
                  
-    public void displayMarkerHelp() {
+    public void displayDifficultyHelp() {
         System.out.println();
         displayHelpBorder();     
         System.out.println( 
-               "\tA symbol that \"marks\" the locations in the board that are occupied "
-                + "by a player. "
-                + "\n\tThe default markers are \"X\" and \"O\"."
+               "\tWhen the player set one difficulty to the game some changes happen, like: "
+                + "\n\tSize of the Arena"
+                + "\n\tAmount of enemies in the game"
+                + "\n\tAmount of obstacules in the Arena"
+                + "\n\tSize of the Snake"
                 ); 
         displayHelpBorder();
     }
     
+    public void displayQuitHelp() {
+        this.menu.displayMenu();
+        this.menu.selection();
+        
+    }
     
     public void displayHelpBorder() {       
         System.out.println(
-        "\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        "\t~~~~~~~:<      }}}}}}}}}}}}}}:<       ==========:<      ###########:<    OOOOOOOOO:<");
     }
     
   
