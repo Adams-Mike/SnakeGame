@@ -34,6 +34,7 @@ public class SnakeGame {
         ScoreBoard myGame5 = new ScoreBoard();
         Snake myGame6 = new Snake();
         HelpMenuView myGame7 = new HelpMenuView();
+        SnakeLengthView myGame8 = new SnakeLengthView();
         
         myGame.getName();
         myGame.displayHelp();
@@ -45,6 +46,7 @@ public class SnakeGame {
         myGame6.getSnakeName();
         myGame6.displaySnake();
         myGame6.getSnakeSize();
+        myGame8.snakeLength();
     }
     
     public void getName(){
