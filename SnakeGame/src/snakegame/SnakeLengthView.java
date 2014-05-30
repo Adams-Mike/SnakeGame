@@ -25,8 +25,10 @@ public class SnakeLengthView {
             if (length > maxLength || length < minLength){
                 System.out.println("Error, wrong input (3-15)");
                 this.length = keyboard.nextInt();
-                
+                continue;
             }
+            correct = true;
+            System.out.println("Snake Length is: " +length);
          }
       }
 }
