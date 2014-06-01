@@ -1,4 +1,4 @@
-/*
+/* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -16,12 +16,25 @@ public class Menu {
     
     String selection;
     
-    String info = "Menu\n\n"
-            + "Start New Game: N\n"
-            + "High Scores: S\n"
-            + "Quit: Q\n"
-            + "Help: H\n\n"
-            + "Please make a selection: ";
+    String info =
+             "\n\t===================================="
+            + "\n\t* Menu                            *" 
+            + "\n\t*                                 *"
+            + "\n\t* Start a New Game: N             *"  
+            + "\n\t* High Scores: S                  *"
+            + "\n\t* Quit: Q                         *"
+            + "\n\t* Help: H                         *" 
+            + "\n\t*                                 *"
+            + "\n\t* Please make a selection:        *"
+            + "\n\t==================================="
+            + "\n";
+    
+    
+    
+             
+    
+    
+    
 
     private final HelpMenuView helpMenuView = new HelpMenuView();
     

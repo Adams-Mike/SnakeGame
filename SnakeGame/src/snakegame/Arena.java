@@ -11,11 +11,22 @@ package snakegame;
  * @author Isail
  */
 public class Arena {
-    String Arena ="This is place for the arena:  [        ]";
-    String ArenaSizes = "The player can choose the size of the Arena";
+    String Arena = 
+            "\n\tThis is the place for the arena: "
+            + "\n\t*====================================*"
+            + "\n\t*                                    *"
+            + "\n\t*                                    *"
+            + "\n\t*                                    *"
+            + "\n\t*       ()()()()():<                 *"
+            + "\n\t*                                    *"
+            + "\n\t*                                    *"
+            + "\n\t*                                    *"
+            + "\n\t*                                    *"
+            + "\n\t*                                    *"
+            + "\n\t*====================================*";
     
-    public void printArena(){
+    public void displayArena(){
         System.out.println(this.Arena);
-        System.out.println(this.ArenaSizes);
+        
     }
 }

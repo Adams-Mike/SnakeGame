@@ -13,8 +13,9 @@ import java.util.Scanner;
  * @author Isail
  */
 public class ScoreBoard {
-    String Arena ="This is place for the arena:  [        ]";
-    String ArenaSizes = "The player can choose the size of the Arena";
+    
+            
+    
     
     double orangePoints = 5.5;
     double applePoints = 10.5;
@@ -24,10 +25,7 @@ public class ScoreBoard {
     double playerScore = 0;
     double playerScoreTwo = 0;
     
-    public void printArena(){
-        System.out.println(this.Arena);
-        System.out.println(this.ArenaSizes);
-    }
+    
     
     public void scoreCalculator(){
         

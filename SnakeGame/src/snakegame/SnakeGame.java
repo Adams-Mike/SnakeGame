@@ -14,14 +14,27 @@ import java.util.Scanner;
  */
 public class SnakeGame {
 
+private final static String WELCOME = 
+              "\n\t***********************************************************************"
+            + "\n\t* Welcome to the game of Snake!                                       *"                            
+            + "\n\t* You will be playing against the CPU and other rivals.               *"
+            + "\n\t* The object of the game is to get as many points you can and don't   *"
+            + "\n\t* die. Also eat the fruits to grow and be the winner                  *" 
+            + "\n\t*                                                                     *"
+            + "\n\t* Good Luck!!!                                                        *"
+            + "\n\t***********************************************************************"
+            + "\n";
+
+private void displayWelcome() {
+        System.out.println(SnakeGame.WELCOME);
+    }
+
+    
+    
     String name;
-    String instructions = "This is a game about a snake that is inside you. \n\n"
-            + "You will be playing against a random computer foe.\n"
-            + "The object of this game is to collect as many items as possible"
-            + " and survive.\n"
-            + "Use arrow keys or WASD to control the movement of the snake.\n"
-            + "Try not to die, and collect as many points as you can.\n\n"
-            + "GOOD LUCK!\n\n";
+    String instructions = "Type the word linked to the menu and "
+            + "\nUse arrow keys or WASD to control the movement of the snake.\n";
+            
 
  
         
@@ -36,10 +49,12 @@ public class SnakeGame {
         HelpMenuView myGame7 = new HelpMenuView();
         SnakeLengthView myGame8 = new SnakeLengthView();
         
+
+        myGame.displayWelcome();
         myGame.getName();
-        myGame.displayHelp();
+        myGame.displayName();
         myGame3.displayMenu();
-        myGame2.printArena();
+        myGame2.displayArena();
         myGame4.runPowerUps();
         myGame5.scoreCalculator();
         myGame5.highScores();
@@ -51,16 +66,17 @@ public class SnakeGame {
     
     public void getName(){
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter your name:  ");
+        System.out.println(this.instructions);
+        System.out.println("Please enter your name:  ");
         this.name = input.next();
                 
     }
     
-    public void displayHelp() {
+    public void displayName() {
         System.out.println("\nWelcome " + this.name + "\n");
-        System.out.println(this.instructions);
+       
     }
-
+    
     void instructions() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
