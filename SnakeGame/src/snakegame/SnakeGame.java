@@ -53,7 +53,9 @@ private void displayWelcome() {
         myGame.displayWelcome();
         myGame.getName();
         myGame.displayName();
+        
         myGame3.displayMenu();
+        myGame5.difficultyLevel();
         myGame2.displayArena();
         myGame4.runPowerUps();
         myGame5.scoreCalculator();

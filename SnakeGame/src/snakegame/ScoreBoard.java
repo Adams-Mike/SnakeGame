@@ -13,9 +13,8 @@ import java.util.Scanner;
  * @author Isail
  */
 public class ScoreBoard {
-    
-            
-    
+   
+        
     
     double orangePoints = 5.5;
     double applePoints = 10.5;
@@ -25,8 +24,17 @@ public class ScoreBoard {
     double playerScore = 0;
     double playerScoreTwo = 0;
     
-    
-    
+    public void difficultyLevel() {
+    System.out.println("==============:<  >:==============" ); 
+        System.out.println("Choose a difficult level");
+        String[] data = { "Babie Snake: 000:<", "Anaconda: OOOOOOO:<","Python: DDDDDDDDDDDD:<" };
+        System.out.println("==============:<  >:==============" ); 
+    for (String s : data) {
+      System.out.println(s);
+
+    }}
+
+ 
     public void scoreCalculator(){
         
         Scanner input = new Scanner(System.in);
@@ -66,5 +74,9 @@ public class ScoreBoard {
         else{
             System.out.println("Player 1 Wins!");
         }
-    }
+    
+   
 }
+    }        
+
+

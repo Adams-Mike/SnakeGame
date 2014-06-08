@@ -26,7 +26,7 @@ public class Snake{
         this.snakeName = input.next();
         }
         public void displaySnake() {
-        System.out.println("Your Snake name is: " + this.snakeName + "!!!!!\nSsssssuper cool");
+        System.out.println("Your Snake name is: " + this.snakeName + "!!!!!");
         }
     /**
      * @author Isail
