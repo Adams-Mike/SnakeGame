@@ -48,12 +48,12 @@ private void displayWelcome() {
         Snake myGame6 = new Snake();
         HelpMenuView myGame7 = new HelpMenuView();
         SnakeLengthView myGame8 = new SnakeLengthView();
-        
+        Player myGame9 = new Player();
 
         myGame.displayWelcome();
         myGame.getName();
         myGame.displayName();
-        
+        myGame9.PlayersName();
         myGame3.displayMenu();
         myGame5.difficultyLevel();
         myGame2.displayArena();
