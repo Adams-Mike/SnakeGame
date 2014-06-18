@@ -7,9 +7,7 @@
 package snakegame;
 
 import java.util.Scanner;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.event.KeyEvent;
 
 
 /**
@@ -31,6 +29,11 @@ private final static String WELCOME =
             + "\n";
 */ //NO LONGER NEEDED - REMOVE LATER
     
+public final static String TITLE = "\n\n\n                                             ╔═╗╔╗╔╔═╗╦╔═╔═╗\n" +
+"                                             ╚═╗║║║╠═╣╠╩╗║╣ \n" +
+"                                             ╚═╝╝╚╝╩    ╩╩    ╩╚═╝";
+
+public static String window = "";
 public static boolean up = false;
 public static boolean down = false;
 public static boolean left = false;
@@ -45,12 +48,14 @@ public static final int height = 450;
 public static double score = 0;
 public static final int length_easy = 1;
 public static final int length_hard = 5;
+public static final int length = 0;
 
-public static final double apple_points = 1;
 public static final double grape_points = 1;
-public static final double orange_points = 1;
+public static final double apple_points= 2.5;
+public static final double orange_points = 5;
 
 public static final String title = "Snake";
+private static KeyEvent KeyEvent;
 
 /* UNNEEDED
 private void displayWelcome() {
@@ -73,8 +78,11 @@ private void displayWelcome() {
         SnakeLengthView myGame8 = new SnakeLengthView();
         Player myGame9 = new Player();
         
-        SnakeWindow window = new SnakeWindow();
-
+        SnakeWindow displayWindow = new SnakeWindow();
+        
+        
+        
+        
         //myGame.displayWelcome();
         //myGame.getName();
         //myGame.displayName();
@@ -90,7 +98,7 @@ private void displayWelcome() {
         //myGame6.getSnakeSize();
         //myGame8.snakeLength();
     }
-    
+        
     public void getName(){
         Scanner input = new Scanner(System.in);
         System.out.println(this.instructions);
