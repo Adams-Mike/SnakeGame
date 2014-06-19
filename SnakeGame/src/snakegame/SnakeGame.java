@@ -50,6 +50,8 @@ public static final int length_easy = 1;
 public static final int length_hard = 5;
 public static final int length = 0;
 
+public static boolean alive = true;
+
 public static final double grape_points = 1;
 public static final double apple_points= 2.5;
 public static final double orange_points = 5;
@@ -84,19 +86,19 @@ private void displayWelcome() {
         
         
         //myGame.displayWelcome();
-        //myGame.getName();
-        //myGame.displayName();
-        //myGame9.PlayersName();
-        //myGame3.displayMenu();
-        //myGame5.difficultyLevel();
-        //myGame2.displayArena();
-        //myGame4.runPowerUps();
-        //myGame5.scoreCalculator();
-        //myGame5.highScores();
-        //myGame6.getSnakeName();
-        //myGame6.displaySnake();
-        //myGame6.getSnakeSize();
-        //myGame8.snakeLength();
+        myGame.getName();
+        myGame.displayName();
+        myGame9.PlayersName();
+        myGame3.displayMenu();
+        myGame5.difficultyLevel();
+        myGame2.displayArena();
+        myGame4.runPowerUps();
+        myGame5.scoreCalculator();
+        myGame5.highScores();
+        myGame6.getSnakeName();
+        myGame6.displaySnake();
+        myGame6.getSnakeSize();
+        myGame8.snakeLength();
     }
         
     public void getName(){
