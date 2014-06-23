@@ -29,9 +29,11 @@ private final static String WELCOME =
             + "\n";
 */ //NO LONGER NEEDED - REMOVE LATER
     
-public final static String TITLE = "\n\n\n    ╔═╗╔╗╔╔═╗╦╔═╔═╗\n" +
-"                                             ╚═╗║║║╠═╣╠╩╗║╣ \n" +
-"                                             ╚═╝╝╚╝╩  ╩╩ ╩╚═╝ ";
+public final static String TITLE = 
+    
+   "╔═╗╔╗╔╔═╗╦╔═╔═╗"+
+   "╚═╗║║║╠═╣╠╩╗║╣"+
+   "╚═╝╝╚╝╩═╩╩═╩╚═╝ ";
 
 public static String window = "";
 public static boolean up = false;
@@ -56,7 +58,7 @@ public static final double grape_points = 1;
 public static final double apple_points= 2.5;
 public static final double orange_points = 5;
 
-public static final String title = "Snake";
+public static final String titleSmall = "Snake";
 private static KeyEvent KeyEvent;
 
 /* UNNEEDED

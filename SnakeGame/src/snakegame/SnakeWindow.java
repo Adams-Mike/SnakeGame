@@ -7,7 +7,8 @@ import javax.swing.border.Border;
 import static snakegame.SnakeGame.height;
 import static snakegame.SnakeGame.length;
 import static snakegame.SnakeGame.score;
-import static snakegame.SnakeGame.title;
+import static snakegame.SnakeGame.titleSmall;
+import static snakegame.SnakeGame.TITLE;
 import static snakegame.SnakeGame.width;
 
 /**
@@ -18,7 +19,7 @@ public class SnakeWindow extends JFrame{
     
     SnakeWindow(){
         this.setFocusable(true);
-        JFrame window = new JFrame(title);
+        JFrame window = new JFrame(titleSmall);
         window.setSize(height, width);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.setVisible(true);
@@ -28,6 +29,7 @@ public class SnakeWindow extends JFrame{
         JLabel statusLabel = new JLabel("status");
         JLabel scoreLabel = new JLabel("Score: " + score);
         JLabel lengthLabel = new JLabel("Length: " + length);
+       
         
         //set icon?
         //window.setIconImage(new ImageIcon("snake.png").getImage());
@@ -49,7 +51,8 @@ public class SnakeWindow extends JFrame{
         window.add(gameArea, BorderLayout.NORTH);
         
         gameBox.setBackground(Color.BLACK);
-        gameBox.setForeground(Color.GREEN); 
+        gameBox.setForeground(Color.GREEN);
+        gameBox.setText(TITLE);
         
         JPanel statusBar = new JPanel();
         statusBar.setBorder(new BevelBorder(BevelBorder.LOWERED));
@@ -78,6 +81,7 @@ public class SnakeWindow extends JFrame{
         lengthBar.add(lengthLabel);
         gameArea.add(gameBox);
         window.pack();
+        
     }
     
 }
