@@ -16,7 +16,7 @@ String name;
 Scanner PlayerName = new Scanner (System.in); 
 
 
-for (int i = 0 ; i<3 ; i++){ 
+for (int i = 0 ; i<2 ; i++){ 
 System.out.print("Enter the name of the player "+(i+1)+": " ); 
 name = PlayerName.nextLine(); 
 
