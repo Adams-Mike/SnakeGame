@@ -31,9 +31,9 @@ private final static String WELCOME =
     
 public final static String TITLE = 
     
-   "╔═╗╔╗╔╔═╗╦╔═╔═╗"+
-   "╚═╗║║║╠═╣╠╩╗║╣"+
-   "╚═╝╝╚╝╩═╩╩═╩╚═╝ ";
+        "\n╔═╗╔╗╔╔═╗╦╔═╔═╗"+
+        "\n╚═╗║║║╠═╣╠╩╗║╣"+ 
+        "\n╚═╝╝╚╝╩═╩╩═╩╚═╝\n ";
 
 public static String window = "";
 public static boolean up = false;

@@ -4,12 +4,13 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
+import static snakegame.SnakeGame.TITLE;
 import static snakegame.SnakeGame.height;
 import static snakegame.SnakeGame.length;
 import static snakegame.SnakeGame.score;
 import static snakegame.SnakeGame.titleSmall;
-import static snakegame.SnakeGame.TITLE;
 import static snakegame.SnakeGame.width;
+
 
 /**
  *
@@ -53,7 +54,7 @@ public class SnakeWindow extends JFrame{
         gameBox.setBackground(Color.BLACK);
         gameBox.setForeground(Color.GREEN);
         gameBox.setText(TITLE);
-        
+   
         JPanel statusBar = new JPanel();
         statusBar.setBorder(new BevelBorder(BevelBorder.LOWERED));
         window.add(statusBar, BorderLayout.LINE_START);
