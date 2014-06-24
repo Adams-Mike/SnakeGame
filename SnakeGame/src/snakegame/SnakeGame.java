@@ -6,8 +6,9 @@
 
 package snakegame;
 
-import java.util.Scanner;
 import java.awt.event.KeyEvent;
+import java.util.Scanner;
+
 
 
 /**
@@ -90,7 +91,7 @@ private void displayWelcome() {
         //myGame.displayWelcome();
         myGame.getName();
         myGame.displayName();
-        myGame9.PlayersName();
+        Player.PlayersName();
         myGame3.displayMenu();
         myGame5.difficultyLevel();
         myGame2.displayArena();

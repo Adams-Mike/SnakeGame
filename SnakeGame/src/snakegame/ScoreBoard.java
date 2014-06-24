@@ -29,11 +29,12 @@ public class ScoreBoard {
         System.out.println("Choose a difficult level");
         String[] data = { "Babie Snake: 000:<", "Anaconda: OOOOOOO:<","Python: DDDDDDDDDDDD:<" };
         System.out.println("==============:<  >:==============" ); 
-    for (String s : data) {
-      System.out.println(s);
+        Scanner input = new Scanner(System.in);
+        int level;
+        level = input.nextInt();        
+      System.out.println(level);
 
-    }}
-    
+    }
 
  
     public void scoreCalculator(){

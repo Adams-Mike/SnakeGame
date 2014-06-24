@@ -9,22 +9,28 @@ package snakegame;
 import java.util.Scanner;
 
 public class Player { 
-public void PlayersName(){  
-  
-String name; 
- 
+public static void PlayersName(){ 
+      
+String name1; 
+String name2;
+
 Scanner PlayerName = new Scanner (System.in); 
 
-
-for (int i = 0 ; i<2 ; i++){ 
-System.out.print("Enter the name of the player "+(i+1)+": " ); 
-name = PlayerName.nextLine(); 
+System.out.print("Enter the name of the player 1: " ); 
+name1 = PlayerName.nextLine(); 
 
 System.out.println("==============:<  >:==============" ); 
-System.out.println("Welcome "+ name); 
+System.out.println("Welcome "+ name1); 
 System.out.println("==============:<  >:==============" ); 
 
-} 
+
+System.out.print("Enter the name of the player 2: " ); 
+name2 = PlayerName.nextLine(); 
+
+System.out.println("==============:<  >:==============" ); 
+System.out.println("Welcome "+ name2); 
+System.out.println("==============:<  >:==============" ); 
+
 
 System.out.println("All the names where entered correctly." ); 
 

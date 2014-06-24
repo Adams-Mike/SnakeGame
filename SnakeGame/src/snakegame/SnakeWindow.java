@@ -10,13 +10,12 @@ import static snakegame.SnakeGame.length;
 import static snakegame.SnakeGame.score;
 import static snakegame.SnakeGame.titleSmall;
 import static snakegame.SnakeGame.width;
-
-
 /**
  *
  * @author Michael
  */
 public class SnakeWindow extends JFrame{
+ 
     
     SnakeWindow(){
         this.setFocusable(true);
@@ -54,6 +53,7 @@ public class SnakeWindow extends JFrame{
         gameBox.setBackground(Color.BLACK);
         gameBox.setForeground(Color.GREEN);
         gameBox.setText(TITLE);
+       
    
         JPanel statusBar = new JPanel();
         statusBar.setBorder(new BevelBorder(BevelBorder.LOWERED));

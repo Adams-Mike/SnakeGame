@@ -67,7 +67,7 @@ public class HelpMenuView  {
                     new SnakeError().displayError("Invalid selection. Please select a valid command.");
                     continue;
             }
-        } while (command.contains("Q")); 
+        } while (!command.contains("Q")); 
         
        return;
     }
