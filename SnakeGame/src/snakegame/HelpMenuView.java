@@ -6,13 +6,7 @@ package snakegame;
 
 import java.util.Scanner;
 
-
-
-/**
- *
- * @author jacksonrkj
- */
-public class HelpMenuView  {
+public class HelpMenuView extends SuperMenu {
         
     private final static String[][] menuItems = {
         {"A", "Arena"},
@@ -25,12 +19,13 @@ public class HelpMenuView  {
     
     
     // Create instance of the HelpMenuControl (action) class
-    private HelpMenuControl helpMenuControl = new HelpMenuControl();
+    private final HelpMenuControl helpMenuControl = new HelpMenuControl();
     // default constructor
     public HelpMenuView() {
-        
+        super();
     } 
     
+
     // display the help menu and get the end users input selection
     public void getInput() {       
               
@@ -65,11 +60,9 @@ public class HelpMenuView  {
                     break;
                 default: 
                     new SnakeError().displayError("Invalid selection. Please select a valid command.");
-                    continue;
             }
         } while (!command.contains("Q")); 
         
-       return;
     }
 
         // displays the help menu
@@ -77,8 +70,8 @@ public class HelpMenuView  {
         System.out.println("\n\t===============================================================");
         System.out.println("\tHelp Menu: \n\tEnter the letter associated with one of the following commands:");
 
-        for (int i = 0; i < HelpMenuView.menuItems.length; i++) {
-            System.out.println("\t   " + menuItems[i][0] + "\t" + menuItems[i][1]);
+        for (String[] menuItem : HelpMenuView.menuItems) {
+            System.out.println("\t   " + menuItem[0] + "\t" + menuItem[1]);
         }
         System.out.println("\t===============================================================\n");
     }

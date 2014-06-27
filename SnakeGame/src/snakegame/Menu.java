@@ -12,45 +12,21 @@ import java.util.Scanner;
  *
  * @author Michael
  */
-public class Menu {
-    
-    String selection;
-    
-    String info =
-             "\n\t===================================="
-            + "\n\t* Menu                            *" 
-            + "\n\t*                                 *"
-            + "\n\t* Start a New Game: N             *"  
-            + "\n\t* High Scores: S                  *"
-            + "\n\t* Quit: Q                         *"
-            + "\n\t* Help: H                         *" 
-            + "\n\t*                                 *"
-            + "\n\t* Please make a selection:        *"
-            + "\n\t==================================="
-            + "\n";
-    
-    
-    
-             
-    
-    
-    
-
+public class Menu extends SuperMenu{
+   
     private final HelpMenuView helpMenuView = new HelpMenuView();
     
-     
-    
     public Menu() {
-        this.selection = " ";
+        Menu.selection = " ";
     }
     
     public void printMenuInfo(){
-        System.out.println(this.info);
+        System.out.println(Menu.info);
     }
     
     public void getUserInput(){
         Scanner input = new Scanner(System.in);
-        this.selection = input.next();
+        Menu.selection = input.next();
         
         String upperSelection = selection.toUpperCase();
         
@@ -76,7 +52,7 @@ public class Menu {
                     break;    
                 default:
                     System.out.println("Incorrect Selection.\n Try again.\n\n");
-                    this.selection = input.next();
+                    Menu.selection = input.next();
                     upperSelection = selection.toUpperCase();
                     break;
             }
