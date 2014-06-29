@@ -59,6 +59,9 @@ public static final double grape_points = 1;
 public static final double apple_points= 2.5;
 public static final double orange_points = 5;
 
+public static final int ROWS = 40;
+public static final int COLS = 40;
+
 public static final String titleSmall = "Snake";
 private static KeyEvent KeyEvent;
 
@@ -83,7 +86,9 @@ private void displayWelcome() {
         SnakeLengthView myGame8 = new SnakeLengthView();
         SuperPlayer myGame9 = new SuperPlayer();
         
-        SnakeWindow displayWindow = new SnakeWindow();
+        Board game1 = new Board();
+        
+        //SnakeWindow displayWindow = new SnakeWindow();
         
         
         
