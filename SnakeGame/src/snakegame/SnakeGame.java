@@ -81,7 +81,7 @@ private void displayWelcome() {
         Snake myGame6 = new Snake();
         HelpMenuView myGame7 = new HelpMenuView();
         SnakeLengthView myGame8 = new SnakeLengthView();
-        Player myGame9 = new Player();
+        SuperPlayer myGame9 = new SuperPlayer();
         
         SnakeWindow displayWindow = new SnakeWindow();
         
@@ -91,7 +91,7 @@ private void displayWelcome() {
         //myGame.displayWelcome();
         myGame.getName();
         myGame.displayName();
-        Player.PlayersName();
+        SuperPlayer.PlayersName();
         myGame3.displayMenu();
         myGame5.difficultyLevel();
         myGame2.displayArena();

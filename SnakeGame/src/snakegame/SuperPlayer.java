@@ -8,7 +8,7 @@ package snakegame;
 
 import java.util.Scanner;
 
-public class Player { 
+public class SuperPlayer { 
 public static void PlayersName(){ 
       
 String name1; 
@@ -30,9 +30,6 @@ name2 = PlayerName.nextLine();
 System.out.println("==============:<  >:==============" ); 
 System.out.println("Welcome "+ name2); 
 System.out.println("==============:<  >:==============" ); 
-
-
-System.out.println("All the names where entered correctly." ); 
 
 } 
 }
