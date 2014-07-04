@@ -11,5 +11,10 @@ package snakegame.interfaces;
  * @author user
  */
 public interface DisplayInfo {
-    
+
+    public static class display {
+
+        public display() {
+        }
+    }
 }

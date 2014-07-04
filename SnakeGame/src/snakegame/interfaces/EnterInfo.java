@@ -10,6 +10,11 @@ package snakegame.interfaces;
  *
  * @author user
  */
-public class EnterInfo {
-    
+public interface EnterInfo {
+  
+    public static class enterinfo {
+
+        public enterinfo() {
+        }
+    }
 }
