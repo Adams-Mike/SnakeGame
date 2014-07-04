@@ -114,7 +114,7 @@ private void displayWelcome() {
         SnakeLengthView myGame8 = new SnakeLengthView();
         SuperPlayer myGame9 = new SuperPlayer();
         
-        Board game1 = new Board();
+        //Board game1 = new Board();
         
         //SnakeWindow displayWindow = new SnakeWindow();
         
