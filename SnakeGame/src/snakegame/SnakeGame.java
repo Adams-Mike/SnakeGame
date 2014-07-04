@@ -6,12 +6,12 @@
 
 package snakegame;
 
-import snakegame.HomeworkRelatedClasses.SuperPlayer;
-import snakegame.HomeworkRelatedClasses.SnakeLengthView;
-import snakegame.HomeworkRelatedClasses.ScoreBoard;
-import snakegame.HomeworkRelatedClasses.PowerUps;
-import snakegame.HomeworkRelatedClasses.Snake;
-import snakegame.HomeworkRelatedClasses.Arena;
+import snakegame.homework.isail.SuperPlayer;
+import snakegame.homework.isail.SnakeLengthView;
+import snakegame.homework.isail.ScoreBoard;
+import snakegame.homework.mike.PowerUps;
+import snakegame.homework.isail.Snake;
+import snakegame.homework.isail.Arena;
 
 import snakegame.menus.Menu;
 import snakegame.menus.HelpMenuView;

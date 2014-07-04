@@ -1,4 +1,4 @@
-package snakegame.HomeworkRelatedClasses;
+package snakegame.homework.mike;
 
 /*package snakegame
 

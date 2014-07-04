@@ -5,7 +5,7 @@
 package snakegame.menus;
 
 import java.util.Scanner;
-import snakegame.HomeworkRelatedClasses.SnakeError;
+import snakegame.homework.isail.SnakeError;
 
 public abstract class HelpMenuView extends SuperMenu {
         
