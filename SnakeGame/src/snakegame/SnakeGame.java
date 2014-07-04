@@ -6,8 +6,9 @@
 
 package snakegame;
 
-import java.awt.event.KeyEvent;
-import java.util.Scanner;
+import java.awt.Image;
+import javax.swing.JFrame;
+import javax.swing.Timer;
 
 
 
@@ -15,43 +16,25 @@ import java.util.Scanner;
  *
  *
  */
-public class SnakeGame {
+public class SnakeGame extends JFrame {
 
-/* NO LONGER NEEDED - REMOVE LATER
-private final static String WELCOME = 
-              "\n\t***********************************************************************"
-            + "\n\t* Welcome to the game of Snake!                                       *"                            
-            + "\n\t* You will be playing against the CPU and other rivals.               *"
-            + "\n\t* The object of the game is to get as many points you can and don't   *"
-            + "\n\t* die. Also eat the fruits to grow and be the winner                  *" 
-            + "\n\t*                                                                     *"
-            + "\n\t* Good Luck!!!                                                        *"
-            + "\n\t***********************************************************************"
-            + "\n";
-*/ //NO LONGER NEEDED - REMOVE LATER
-    
-public final static String TITLE = 
-    
-        "\n╔═╗╔╗╔╔═╗╦╔═╔═╗"+
-        "\n╚═╗║║║╠═╣╠╩╗║╣"+ 
-        "\n╚═╝╝╚╝╩═╩╩═╩╚═╝\n ";
-
-public static String window = "";
 public static boolean up = false;
 public static boolean down = false;
 public static boolean left = false;
 public static boolean right = false;
 
-public static final int arena_height = 30;
-public static final int arena_width = 30;
+public static final int Width = 450;
+public static final int Height = 450;
 
-public static final int width = 450;
-public static final int height = 450;
+public static final int AllPositions = (Width * Height) / 100;
+
+public static final int PosX[] = new int[AllPositions];
+public static final int PosY[] = new int[AllPositions];
 
 public static double score = 0;
-public static final int length_easy = 1;
-public static final int length_hard = 5;
-public static final int length = 0;
+public static int length = 3;
+
+public static final int Square = 25;
 
 public static boolean alive = true;
 
@@ -59,11 +42,34 @@ public static final double grape_points = 1;
 public static final double apple_points= 2.5;
 public static final double orange_points = 5;
 
-public static final int ROWS = 40;
-public static final int COLS = 40;
+public static int AppleX = 0;
+public static int AppleY = 0;
+
+public static int OrangeX = 0;
+public static int OrangeY = 0;
+
+public static int GrapeX = 0;
+public static int GrapeY = 0;
 
 public static final String titleSmall = "Snake";
-private static KeyEvent KeyEvent;
+
+public static Image SnakeHead;
+public static Image SnakeScale;
+
+public static Image Apple;
+public static Image Grape;
+public static Image Orange;
+
+public static Image Splash;
+public static Image Icon;
+
+public static Timer timer;
+
+public static final int Step = 150;
+
+static boolean GrapePlaced = false;
+static boolean OrangePlaced = false;
+static boolean ApplePlaced = false;
 
 /* UNNEEDED
 private void displayWelcome() {
@@ -109,13 +115,13 @@ private void displayWelcome() {
         myGame8.snakeLength();
     }
         
-    public void getName(){
-        Scanner input = new Scanner(System.in);
-        System.out.println(this.instructions);
-        System.out.println("Please enter your name:  ");
-        this.name = input.next();
-                
-    }
+    /*    public void getName(){
+    Scanner input = new Scanner(System.in);
+    System.out.println(this.instructions);
+    System.out.println("Please enter your name:  ");
+    this.name = input.next();
+    
+    }*/
     
     public void displayName() {
         System.out.println("\nWelcome " + this.name + "\n");

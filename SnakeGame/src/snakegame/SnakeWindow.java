@@ -1,4 +1,4 @@
-package snakegame;
+/*package snakegame
 
 import java.awt.*;
 import javax.swing.*;
@@ -11,11 +11,15 @@ import static snakegame.SnakeGame.score;
 import static snakegame.SnakeGame.titleSmall;
 import static snakegame.SnakeGame.width;
 /**
- *
- * @author Michael
- */
+* THIS NEEDS TO BE FIXED!
+* @author Michael
+*/
+
+
+
+/*
 public class SnakeWindow extends JFrame{
- 
+    
     
     SnakeWindow(){
         this.setFocusable(true);
@@ -29,7 +33,7 @@ public class SnakeWindow extends JFrame{
         JLabel statusLabel = new JLabel("status");
         JLabel scoreLabel = new JLabel("Score: " + score);
         JLabel lengthLabel = new JLabel("Length: " + length);
-       
+        
         
         //set icon?
         //window.setIconImage(new ImageIcon("snake.png").getImage());
@@ -37,13 +41,13 @@ public class SnakeWindow extends JFrame{
         
         JPanel gameArea = new JPanel(){
             @Override public void setBorder(Border border) {
-            // No!
-                }
+                // No!
+            }
         };
         JTextArea gameBox = new JTextArea(25, 40){
-                @Override public void setBorder(Border border) {
+            @Override public void setBorder(Border border) {
                 // No!
-                }
+            }
         };
         gameBox.setSize(new Dimension(width, height));
         gameBox.setEditable(true);
@@ -53,8 +57,8 @@ public class SnakeWindow extends JFrame{
         gameBox.setBackground(Color.BLACK);
         gameBox.setForeground(Color.GREEN);
         gameBox.setText(TITLE);
-       
-   
+        
+        
         JPanel statusBar = new JPanel();
         statusBar.setBorder(new BevelBorder(BevelBorder.LOWERED));
         window.add(statusBar, BorderLayout.LINE_START);
@@ -76,7 +80,7 @@ public class SnakeWindow extends JFrame{
         lengthBar.setLayout(new BoxLayout(lengthBar, BoxLayout.X_AXIS));
         scoreLabel.setHorizontalAlignment(SwingConstants.LEFT);
         
-
+        
         statusBar.add(statusLabel);
         scoreBar.add(scoreLabel);
         lengthBar.add(lengthLabel);
@@ -85,4 +89,4 @@ public class SnakeWindow extends JFrame{
         
     }
     
-}
+}*/
