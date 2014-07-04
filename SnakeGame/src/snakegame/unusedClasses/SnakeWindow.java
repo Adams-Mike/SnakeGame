@@ -1,3 +1,5 @@
+package snakegame.unusedClasses;
+
 /*package snakegame
 
 import java.awt.*;

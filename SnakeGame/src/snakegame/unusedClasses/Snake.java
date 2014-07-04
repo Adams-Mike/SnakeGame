@@ -4,9 +4,10 @@
  * and open the template in the editor.
  */
 
-package snakegame;
+package snakegame.unusedClasses;
 
 import java.util.Scanner;
+import snakegame.SnakeGame;
 
 /**
  *

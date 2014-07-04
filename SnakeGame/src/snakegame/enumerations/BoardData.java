@@ -12,4 +12,6 @@ package snakegame.enumerations;
  */
 public enum BoardData {
     
+    RUNNING, ALIVE;
+    
 }

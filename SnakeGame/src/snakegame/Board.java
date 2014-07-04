@@ -14,6 +14,9 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.Random;
 import javax.swing.JPanel;
+import javax.swing.Timer;
+
+import snakegame.enumerations.BoardData;
 
 
 /**
@@ -31,29 +34,89 @@ public class Board extends JPanel implements ActionListener{
       
       setPreferredSize(new Dimension(SnakeGame.Width, SnakeGame.Height - 16));
       
-      InitGame init = new InitGame();
+      InitGame();
       
       
   }
+ 
+  private void InitGame(){
+        
+        for (int i = 0; i < SnakeGame.length; i++) {
+            SnakeGame.PosX[i] = 50 - i * 10;
+            SnakeGame.PosY[i] = 50;
+        }
+        
+        PlaceFruit fruit = new PlaceFruit();
+        
+        SnakeGame.timer = new Timer(SnakeGame.Step, this);
+        SnakeGame.timer.start();
+        
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         
         if (SnakeGame.alive) {
             CheckFruit check = new CheckFruit();
-            checkCollision();
+            BiteSelf();
             moveSnake();
         }
         
         repaint();
         
     }
+    
+    @Override
+    public void paintComponent(Graphics image) {
+        super.paintComponent(image);
 
-    private void checkCollision() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        displayGraphics(image);
+    }
+    
+        private void displayGraphics(Graphics image) {
+        
+        if (SnakeGame.alive) {
+            
+            if (SnakeGame.ApplePlaced){
+                image.drawImage(SnakeGame.Apple, SnakeGame.AppleX, SnakeGame.AppleY, this);
+            }
+            
+            if (SnakeGame.GrapePlaced){
+                image.drawImage(SnakeGame.Grape, SnakeGame.GrapeX, SnakeGame.GrapeY, this);
+            }
+            
+            if (SnakeGame.OrangePlaced){
+                image.drawImage(SnakeGame.Orange, SnakeGame.OrangeX, SnakeGame.OrangeY, this);
+            }
+
+            
+            for (int i = 0; i < SnakeGame.Square; i++) {
+                if (i == 0) {
+                    image.drawImage(SnakeGame.SnakeHead, SnakeGame.PosX[i], SnakeGame.PosY[i], this);
+                } 
+                else {
+                    image.drawImage(SnakeGame.SnakeScale, SnakeGame.PosX[i], SnakeGame.PosY[i], this);
+                }
+            }
+
+            Toolkit.getDefaultToolkit().sync();
+            image.dispose();
+
+        } else {
+
+            gameOver(image);
+        }        
+    }
+
+    private void BiteSelf() {
+        
     }
 
     private void moveSnake() {
+        
+    }
+
+    private void gameOver(Graphics image) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -151,10 +214,11 @@ public class Board extends JPanel implements ActionListener{
 
         public CheckFruit() {
             
-            if (SnakeGame.ApplePlaced || SnakeGame.GrapePlaced || SnakeGame.OrangePlaced){
+            if (SnakeGame.ApplePlaced & SnakeGame.GrapePlaced & SnakeGame.OrangePlaced){
                 System.out.println("Too many fruit on board!\n");
             }
             else {
+                System.out.println("\n\tFruit Placed!\n");
                 PlaceFruit placeFruit = new PlaceFruit();
             }
         }

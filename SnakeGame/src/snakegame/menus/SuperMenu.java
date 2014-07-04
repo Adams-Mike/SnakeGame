@@ -6,13 +6,16 @@
 
 package snakegame.menus;
 
+import snakegame.interfaces.DisplayInfo;
+import snakegame.interfaces.EnterInfo;
+
 
 
 /**
  *
  * @author Michael
  */
-public class SuperMenu {    
+public class SuperMenu implements DisplayInfo, EnterInfo{    
     
     static String selection;
     

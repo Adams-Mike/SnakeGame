@@ -6,6 +6,12 @@
 
 package snakegame;
 
+import snakegame.unusedClasses.SuperPlayer;
+import snakegame.unusedClasses.SnakeLengthView;
+import snakegame.unusedClasses.ScoreBoard;
+import snakegame.unusedClasses.PowerUps;
+import snakegame.unusedClasses.Snake;
+import snakegame.unusedClasses.Arena;
 import snakegame.menus.Menu;
 import snakegame.menus.HelpMenuView;
 import java.awt.Image;
