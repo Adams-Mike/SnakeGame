@@ -5,9 +5,9 @@
 package snakegame.menus;
 
 import java.util.Scanner;
-import snakegame.unusedClasses.SnakeError;
+import snakegame.HomeworkRelatedClasses.SnakeError;
 
-public class HelpMenuView extends SuperMenu {
+public abstract class HelpMenuView extends SuperMenu {
         
     private final static String[][] menuItems = {
         {"A", "Arena"},
@@ -20,7 +20,13 @@ public class HelpMenuView extends SuperMenu {
     
     
     // Create instance of the HelpMenuControl (action) class
-    private final HelpMenuControl helpMenuControl = new HelpMenuControl();
+    private final HelpMenuControl helpMenuControl = new HelpMenuControl() {
+
+        @Override
+        public void displayHelpBoarder() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+    };
     // default constructor
     public HelpMenuView() {
         super();

@@ -15,7 +15,7 @@ import snakegame.interfaces.EnterInfo;
  *
  * @author Michael
  */
-public class SuperMenu implements DisplayInfo, EnterInfo{    
+public abstract class SuperMenu implements DisplayInfo, EnterInfo{    
     
     static String selection;
     

@@ -12,9 +12,5 @@ package snakegame.interfaces;
  */
 public interface DisplayInfo {
 
-    public static class display {
-
-        public display() {
-        }
-    }
+    void displayHelpBoarder();
 }

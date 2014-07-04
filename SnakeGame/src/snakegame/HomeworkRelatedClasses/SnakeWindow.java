@@ -1,4 +1,4 @@
-package snakegame.unusedClasses;
+package snakegame.HomeworkRelatedClasses;
 
 /*package snakegame
 

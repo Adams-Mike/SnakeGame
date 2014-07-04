@@ -12,9 +12,15 @@ import java.util.Scanner;
  *
  * @author Michael
  */
-public class Menu extends SuperMenu{
+public abstract class Menu extends SuperMenu{
    
-    private final HelpMenuView helpMenuView = new HelpMenuView();
+    private final HelpMenuView helpMenuView = new HelpMenuView() {
+
+        @Override
+        public void displayHelpBoarder() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+    };
     
     public Menu() {
         Menu.selection = " ";

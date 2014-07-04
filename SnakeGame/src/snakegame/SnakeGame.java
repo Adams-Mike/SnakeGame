@@ -6,14 +6,16 @@
 
 package snakegame;
 
-import snakegame.unusedClasses.SuperPlayer;
-import snakegame.unusedClasses.SnakeLengthView;
-import snakegame.unusedClasses.ScoreBoard;
-import snakegame.unusedClasses.PowerUps;
-import snakegame.unusedClasses.Snake;
-import snakegame.unusedClasses.Arena;
+import snakegame.HomeworkRelatedClasses.SuperPlayer;
+import snakegame.HomeworkRelatedClasses.SnakeLengthView;
+import snakegame.HomeworkRelatedClasses.ScoreBoard;
+import snakegame.HomeworkRelatedClasses.PowerUps;
+import snakegame.HomeworkRelatedClasses.Snake;
+import snakegame.HomeworkRelatedClasses.Arena;
+
 import snakegame.menus.Menu;
 import snakegame.menus.HelpMenuView;
+
 import java.awt.Image;
 import javax.swing.JFrame;
 import javax.swing.Timer;
@@ -92,11 +94,23 @@ private void displayWelcome() {
         
         SnakeGame myGame = new SnakeGame();
         Arena myGame2 = new Arena();
-        Menu myGame3 = new Menu();
+        Menu myGame3 = new Menu() {
+
+            @Override
+            public void displayHelpBoarder() {
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        };
         PowerUps myGame4 = new PowerUps();
         ScoreBoard myGame5 = new ScoreBoard();
         Snake myGame6 = new Snake();
-        HelpMenuView myGame7 = new HelpMenuView();
+        HelpMenuView myGame7 = new HelpMenuView() {
+
+            @Override
+            public void displayHelpBoarder() {
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        };
         SnakeLengthView myGame8 = new SnakeLengthView();
         SuperPlayer myGame9 = new SuperPlayer();
         

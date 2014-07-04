@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package snakegame.unusedClasses;
+package snakegame.HomeworkRelatedClasses;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
