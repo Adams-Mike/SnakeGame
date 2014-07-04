@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package snakegame.homework.isail;
+package snakegame.homework.mike;
 
 import java.util.Scanner;
 

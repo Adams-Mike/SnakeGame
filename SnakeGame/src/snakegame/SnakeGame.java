@@ -7,7 +7,7 @@
 package snakegame;
 
 import snakegame.homework.isail.SuperPlayer;
-import snakegame.homework.isail.SnakeLengthView;
+import snakegame.homework.mike.SnakeLengthView;
 import snakegame.homework.isail.ScoreBoard;
 import snakegame.homework.mike.PowerUps;
 import snakegame.homework.isail.Snake;
