@@ -6,6 +6,8 @@
 
 package snakegame;
 
+import snakegame.menus.Menu;
+import snakegame.menus.HelpMenuView;
 import java.awt.Image;
 import javax.swing.JFrame;
 import javax.swing.Timer;
