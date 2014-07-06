@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author Isail
  */
-public class ScoreBoard {
+public class Score {
    
         
     
