@@ -7,9 +7,9 @@
 package snakegame;
 
 import java.awt.EventQueue;
-import snakegame.homework.isail.SuperPlayer;
+import Players.SuperPlayer;
 import snakegame.homework.mike.SnakeLengthView;
-import snakegame.homework.isail.ScoreBoard;
+import snakegame.homework.isail.Score;
 import snakegame.homework.mike.PowerUps;
 import snakegame.homework.isail.SnakeInfo;
 import snakegame.homework.isail.Arena;
@@ -72,7 +72,7 @@ private void displayWelcome() {
             }
         };
         PowerUps myGame4 = new PowerUps();
-        ScoreBoard myGame5 = new ScoreBoard();
+        Score myGame5 = new Score();
         SnakeInfo myGame6 = new SnakeInfo();
         HelpMenuView myGame7 = new HelpMenuView() {
 
