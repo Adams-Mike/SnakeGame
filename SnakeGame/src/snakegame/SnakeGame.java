@@ -8,6 +8,7 @@ package snakegame;
 
 import java.awt.EventQueue;
 import Players.SuperPlayer;
+import java.awt.Image;
 import snakegame.homework.mike.SnakeLengthView;
 import snakegame.homework.isail.Score;
 import snakegame.homework.mike.PowerUps;
@@ -18,6 +19,7 @@ import snakegame.menus.Menu;
 import snakegame.menus.HelpMenuView;
 
 import javax.swing.JFrame;
+import javax.swing.Timer;
 
 
 
@@ -27,7 +29,57 @@ import javax.swing.JFrame;
  */
 public class SnakeGame extends JFrame {
 
+public static boolean up = false;
+public static boolean down = false;
+public static boolean left = false;
+public static boolean right = false;
 
+public static final int Width = 450;
+public static final int Height = 450;
+
+public static final int AllPositions = (Width * Height) / 100;
+
+public static final int PosX[] = new int[AllPositions];
+public static final int PosY[] = new int[AllPositions];
+
+public static int length = 4;
+
+public static final int Square = 25;
+
+public static boolean alive = true;
+
+public static final double grape_points = 1;
+public static final double apple_points= 2.5;
+public static final double orange_points = 5;
+
+public static int AppleX = 0;
+public static int AppleY = 0;
+
+public static int OrangeX = 0;
+public static int OrangeY = 0;
+
+public static int GrapeX = 0;
+public static int GrapeY = 0;
+
+public static Image SnakeHead;
+public static Image SnakeScale;
+
+public static Image Apple;
+public static Image Grape;
+public static Image Orange;
+
+public static Image Splash;
+public static Image Icon;
+
+public static Image GameOver;
+
+public static Timer timer;
+
+public static final int Step = 10000;
+
+public static boolean GrapePlaced = false;
+public static boolean OrangePlaced = false;
+public static boolean ApplePlaced = false;
 
 /* UNNEEDED
 private void displayWelcome() {

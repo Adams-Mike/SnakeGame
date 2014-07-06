@@ -12,7 +12,42 @@ import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
+
+
+import static snakegame.SnakeGame.Apple;
+import static snakegame.SnakeGame.ApplePlaced;
+import static snakegame.SnakeGame.AppleX;
+import static snakegame.SnakeGame.AppleY;
+import static snakegame.SnakeGame.GameOver;
+import static snakegame.SnakeGame.Grape;
+import static snakegame.SnakeGame.GrapePlaced;
+import static snakegame.SnakeGame.GrapeX;
+import static snakegame.SnakeGame.GrapeY;
+import static snakegame.SnakeGame.Height;
+import static snakegame.SnakeGame.Orange;
+import static snakegame.SnakeGame.OrangePlaced;
+import static snakegame.SnakeGame.OrangeX;
+import static snakegame.SnakeGame.OrangeY;
+import static snakegame.SnakeGame.PosX;
+import static snakegame.SnakeGame.PosY;
+import static snakegame.SnakeGame.SnakeHead;
+import static snakegame.SnakeGame.SnakeScale;
+import static snakegame.SnakeGame.Square;
+import static snakegame.SnakeGame.Step;
+import static snakegame.SnakeGame.Width;
+import static snakegame.SnakeGame.alive;
+import static snakegame.SnakeGame.apple_points;
+import static snakegame.SnakeGame.down;
+import static snakegame.SnakeGame.grape_points;
+import static snakegame.SnakeGame.left;
+import static snakegame.SnakeGame.length;
+import static snakegame.SnakeGame.orange_points;
+import static snakegame.SnakeGame.right;
 import static snakegame.SnakeGame.score;
+import static snakegame.SnakeGame.timer;
+import static snakegame.SnakeGame.up;
+
+
 import snakegame.enumerations.BoardStatusMessages;
 
 
@@ -22,57 +57,7 @@ import snakegame.enumerations.BoardStatusMessages;
  */
 public class GameBoard extends JPanel implements ActionListener{
       
-private boolean up = false;
-private boolean down = false;
-private boolean left = false;
-private boolean right = false;
 
-private final int Width = 450;
-private final int Height = 450;
-
-private final int AllPositions = (Width * Height) / 100;
-
-private final int PosX[] = new int[AllPositions];
-private final int PosY[] = new int[AllPositions];
-
-private int length = 4;
-
-private final int Square = 25;
-
-private boolean alive = true;
-
-private final double grape_points = 1;
-private final double apple_points= 2.5;
-private final double orange_points = 5;
-
-private int AppleX = 0;
-private int AppleY = 0;
-
-private int OrangeX = 0;
-private int OrangeY = 0;
-
-private int GrapeX = 0;
-private int GrapeY = 0;
-
-private Image SnakeHead;
-private Image SnakeScale;
-
-private Image Apple;
-private Image Grape;
-private Image Orange;
-
-private Image Splash;
-private Image Icon;
-
-private Image GameOver;
-
-private Timer timer;
-
-private final int Step = 10000;
-
-private boolean GrapePlaced = false;
-private boolean OrangePlaced = false;
-private boolean ApplePlaced = false;
 
   
   public GameBoard() {
