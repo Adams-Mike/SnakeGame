@@ -67,7 +67,7 @@ private Image GameOver;
 
 private Timer timer;
 
-private final int Step = 100;
+private final int Step = 10000;
 
 private boolean GrapePlaced = false;
 private boolean OrangePlaced = false;
@@ -177,8 +177,8 @@ private boolean ApplePlaced = false;
   private void InitGame(){
         
         for (int i = 0; i < length; i++) {
-            PosX[i] = 100 - i * 30;
-            PosY[i] = 100;
+            PosX[i] = 200 - i * 25;
+            PosY[i] = 200;
         }
         
         PlaceFruit();
@@ -269,7 +269,7 @@ private boolean ApplePlaced = false;
         
         private void CheckApple(){            
                 if (PosX[0] == AppleX && PosY[0] == AppleY){
-                    score += apple_points;
+                    SnakeGame.score += apple_points;
                     length += 2;
                     ApplePlaced = false;
                     System.out.println("\n\tCrunch!");
