@@ -7,17 +7,22 @@
 package snakegame.homework.mike;
 
 import java.util.Scanner;
+import snakegame.interfaces.DisplayInfo;
 
 /**
  *
  * @author Michael
  */
-public class SnakeLengthView {
+public abstract class SnakeLengthView implements DisplayInfo{
     int minLength = 3;
     int maxLength = 15;
     int length = minLength;
 
-    public void snakeLength(){
+    /**
+     *
+     */
+    @Override
+    public void showSomeInfo(){
         boolean correct = false;
         Scanner keyboard = new Scanner(System.in);
         this.length = keyboard.nextInt();

@@ -13,4 +13,7 @@ package snakegame.interfaces;
 public interface DisplayInfo {
 
     void displayHelpBoarder();
+    void display();
+    void showSomeInfo();
+    void doSomeStuff();
 }

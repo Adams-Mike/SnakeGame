@@ -13,6 +13,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 import static snakegame.SnakeGame.score;
+import snakegame.enumerations.BoardStatusMessages;
 
 
 /**
@@ -177,8 +178,8 @@ private boolean ApplePlaced = false;
   private void InitGame(){
         
         for (int i = 0; i < length; i++) {
-            PosX[i] = 200 - i * 25;
-            PosY[i] = 200;
+            PosX[i] = 225 + i * 25;
+            PosY[i] = 225;
         }
         
         PlaceFruit();
@@ -460,7 +461,7 @@ private boolean ApplePlaced = false;
             down = false;
             left = false;
             right = false;
-            System.out.println("Now moving up!");
+            BoardStatusMessages.MOVINGUP.display();
         }
         
         private void Down(){
@@ -468,7 +469,7 @@ private boolean ApplePlaced = false;
             down = true;
             left = false;
             right = false;
-            System.out.println("Now moving down!");
+            BoardStatusMessages.MOVINGDOWN.display();
         }
         
         private void Left(){
@@ -476,7 +477,7 @@ private boolean ApplePlaced = false;
             down = false;
             left = true;
             right = false;
-            System.out.println("Now moving left!");
+            BoardStatusMessages.MOVINGLEFT.display();
         }
         
         private void Right(){
@@ -484,7 +485,7 @@ private boolean ApplePlaced = false;
             down = false;
             left = false;
             right = true;
-            System.out.println("Now moving right!");
+            BoardStatusMessages.MOVINGRIGHT.display();
         }
   }
   
