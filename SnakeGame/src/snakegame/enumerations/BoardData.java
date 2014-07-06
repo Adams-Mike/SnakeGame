@@ -12,6 +12,6 @@ package snakegame.enumerations;
  */
 public enum BoardData {
     
-    RUNNING, ALIVE;
+    RUNNING, ALIVE, FRUITS;
     
 }
