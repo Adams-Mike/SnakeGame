@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import snakegame.SnakeGame;
-import static snakegame.SnakeGame.alive;
+///*import*/ static snakegame.SnakeGame.alive;
 
 /**
  *

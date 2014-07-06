@@ -13,7 +13,7 @@ import snakegame.SnakeGame;
  *
  * @author Isail
  */
-public class Snake{
+public class SnakeInfo{
     
     String snakeName;
     String displaySnake;
