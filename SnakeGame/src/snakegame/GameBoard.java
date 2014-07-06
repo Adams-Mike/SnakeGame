@@ -34,7 +34,7 @@ private final int AllPositions = (Width * Height) / 100;
 private final int PosX[] = new int[AllPositions];
 private final int PosY[] = new int[AllPositions];
 
-private int length = 3;
+private int length = 4;
 
 private final int Square = 25;
 
@@ -77,7 +77,7 @@ private boolean ApplePlaced = false;
   public GameBoard() {
       
       addKeyListener(new Controls());
-      setBackground(Color.green);
+      setBackground(Color.black);
       setFocusable(true);
       setPreferredSize(new Dimension(Width, Height));
       ImportImages();
@@ -86,6 +86,94 @@ private boolean ApplePlaced = false;
       
   }
  
+        void PlaceFruit() {
+        
+        Random r = new Random();
+        int random = r.nextInt((10 - 1) + 1) + 1;
+        
+        switch (random) {
+            case 1:
+                placeGrape();
+                break;
+            case 5:
+                placeGrape();
+                placeApple();
+                break;
+            case 10:
+                placeGrape();
+                placeApple();
+                placeOrange();    
+                break;
+            default:
+                placeGrape();
+                break;
+        }
+      }
+        
+      private void placeApple() {
+        int random = (int)(Math.random() * 30);
+        AppleX = random * Square;
+        
+        if (AppleX == OrangeX || AppleX == GrapeX){
+            random = (int)(Math.random() * 30);
+            AppleX = random * Square;
+        }
+        
+        random = (int)(Math.random() * 30);
+        AppleY = random * Square;
+        
+        if (AppleY == OrangeY || AppleY == GrapeY){
+            random = (int)(Math.random() * 30);
+            AppleY = random * Square;
+        }
+        
+        ApplePlaced = true;
+      }
+      
+          private void placeGrape() {
+        int random = (int)(Math.random() * 30);
+        GrapeX = random * Square;
+        
+        if (GrapeX == OrangeX || GrapeX == GrapeX){
+            random = (int)(Math.random() * 30);
+            GrapeX = random * Square;
+        }
+        
+        random = (int)(Math.random() * 30);
+        GrapeY = random * Square;
+        
+        if (GrapeY == OrangeY || GrapeY == GrapeY){
+            random = (int)(Math.random() * 30);
+            GrapeY = random * Square;
+        }
+        
+        GrapePlaced = true;
+    }  
+      
+         private void placeOrange() {
+          int random = (int)(Math.random() * 30);
+          OrangeX = random * Square;
+          
+          if (OrangeX == OrangeX || OrangeX == GrapeX){
+              random = (int)(Math.random() * 30);
+              OrangeX = random * Square;
+          }
+          
+          random = (int)(Math.random() * 30);
+          OrangeY = random * Square;
+          
+          if (OrangeY == OrangeY || OrangeY == GrapeY){
+              
+              random = (int)(Math.random() * 30);
+              OrangeY = random * Square;
+          }
+          
+          OrangePlaced = true;
+      }
+         
+         
+  
+  
   private void InitGame(){
         
         for (int i = 0; i < length; i++) {
@@ -93,7 +181,7 @@ private boolean ApplePlaced = false;
             PosY[i] = 100;
         }
         
-        PlaceFruit fruit = new PlaceFruit();
+        PlaceFruit();
         
         timer = new Timer(Step, this);
         timer.start();
@@ -104,7 +192,7 @@ private boolean ApplePlaced = false;
     public void actionPerformed(ActionEvent e) {
         
         if (alive) {
-            CheckFruit check = new CheckFruit();
+            CheckFruit();
             Bite();
             MoveSnake();
         }
@@ -117,28 +205,28 @@ private boolean ApplePlaced = false;
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        displayGraphics(g);
+        doDrawing(g);
     }
     
-    private void displayGraphics(Graphics g) {
+    private void doDrawing(Graphics g) {
         
         if (alive) {
             
             if (ApplePlaced){
                 g.drawImage(Apple, AppleX, AppleY, this);
-                System.out.println("Apple Drawn!");
+                //System.out.println("Apple Drawn!");
                 repaint();
             }
             
             if (GrapePlaced){
                 g.drawImage(Grape, GrapeX, GrapeY, this);
-                System.out.println("Grape Drawn!");
+                //System.out.println("Grape Drawn!");
                 repaint();
             }
             
             if (OrangePlaced){
                 g.drawImage(Orange, OrangeX, OrangeY, this);
-                System.out.println("Orange Drawn!");
+                //System.out.println("Orange Drawn!");
                 repaint();
             }
 
@@ -163,6 +251,49 @@ private boolean ApplePlaced = false;
             //gameOver(g);
         }        
     }
+    
+    private void CheckFruit() {
+            
+            CheckApple();
+            CheckOrange();
+            CheckGrape(); 
+            
+            if (ApplePlaced && GrapePlaced && OrangePlaced){
+                System.out.println("\n\tToo many fruit on board!\n");
+            }
+            else {
+                System.out.println("\n\tFruit Placed!\n");
+                PlaceFruit();
+            }
+        }
+        
+        private void CheckApple(){            
+                if (PosX[0] == AppleX && PosY[0] == AppleY){
+                    score += apple_points;
+                    length += 2;
+                    ApplePlaced = false;
+                    System.out.println("\n\tCrunch!");
+                }
+        }
+        
+        private void CheckOrange(){
+            if (PosX[0] == OrangeX && PosY[0] == OrangeY){
+                score += orange_points;
+                length += 3;
+                OrangePlaced = false;
+                System.out.println("\n\tChomp!");
+            }
+        }
+        
+        private void CheckGrape(){
+            if (PosX[0] == GrapeX && PosY[0] == GrapeY){
+                score += grape_points;
+                length++;
+                GrapePlaced = false;
+                System.out.println("\n\tNibble!");
+                
+            }
+        }
 
     /*@Override
     public void paint(Graphics g){
@@ -250,142 +381,52 @@ private boolean ApplePlaced = false;
         //ImageIcon gg = new ImageIcon("resources/gameover.png");
         //GameOver = gg.getImage();
     }
-
   
-  private class PlaceFruit {
-      
-      PlaceFruit() {
-        
-        Random r = new Random();
-        int random = r.nextInt((10 - 1) + 1) + 1;
-        
-        switch (random) {
-            case 1:
-                placeGrape();
-                break;
-            case 5:
-                placeGrape();
-                placeApple();
-                break;
-            case 10:
-                placeGrape();
-                placeApple();
-                placeOrange();    
-                break;
-            default:
-                placeGrape();
-                break;
-        }
-      }
-      
-      private void placeApple() {
-        int random = (int)(Math.random() * 30);
-        AppleX = random * Square;
-        
-        if (AppleX == OrangeX || AppleX == GrapeX){
-            random = (int)(Math.random() * 30);
-            AppleX = random * Square;
-        }
-        
-        random = (int)(Math.random() * 30);
-        AppleY = random * Square;
-        
-        if (AppleY == OrangeY || AppleY == GrapeY){
-            random = (int)(Math.random() * 30);
-            AppleY = random * Square;
-        }
-        
-        ApplePlaced = true;
-      }
-      
-      private void placeOrange() {
-          int random = (int)(Math.random() * 30);
-          OrangeX = random * Square;
-          
-          if (OrangeX == OrangeX || OrangeX == GrapeX){
-              random = (int)(Math.random() * 30);
-              OrangeX = random * Square;
-          }
-          
-          random = (int)(Math.random() * 30);
-          OrangeY = random * Square;
-          
-          if (OrangeY == OrangeY || OrangeY == GrapeY){
-              
-              random = (int)(Math.random() * 30);
-              OrangeY = random * Square;
-          }
-          
-          OrangePlaced = true;
-      }
-
-    private void placeGrape() {
-        int random = (int)(Math.random() * 30);
-        GrapeX = random * Square;
-        
-        if (GrapeX == OrangeX || GrapeX == GrapeX){
-            random = (int)(Math.random() * 30);
-            GrapeX = random * Square;
-        }
-        
-        random = (int)(Math.random() * 30);
-        GrapeY = random * Square;
-        
-        if (GrapeY == OrangeY || GrapeY == GrapeY){
-            random = (int)(Math.random() * 30);
-            GrapeY = random * Square;
-        }
-        
-        GrapePlaced = true;
-    }      
-      
-  }
-  
-  private class CheckFruit {
-
-        public CheckFruit() {
-            
-            CheckApple();
-            CheckOrange();
-            CheckGrape(); 
-            
-            if (ApplePlaced && GrapePlaced && OrangePlaced){
-                System.out.println("\n\tToo many fruit on board!\n");
-            }
-            else {
-                System.out.println("\n\tFruit Placed!\n");
-                PlaceFruit placeFruit = new PlaceFruit();
-            }
-        }
-        
-        private void CheckApple(){            
-                if (PosX[0] == AppleX && PosY[0] == AppleY){
-                    score += apple_points;
-                    length += 2;
-                    ApplePlaced = false;
-                    System.out.println("\n\tCrunch!");
-                }
-        }
-        
-        private void CheckOrange(){
-            if (PosX[0] == OrangeX && PosY[0] == OrangeY){
-                score += orange_points;
-                length += 3;
-                OrangePlaced = false;
-                System.out.println("\n\tChomp!");
-            }
-        }
-        
-        private void CheckGrape(){
-            if (PosX[0] == GrapeX && PosY[0] == GrapeY){
-                score += grape_points;
-                length++;
-                GrapePlaced = false;
-                System.out.println("\n\tNibble!");
-                
-            }
-        }
-  }
+    /*private class CheckFruit {
+    
+    public CheckFruit() {
+    
+    CheckApple();
+    CheckOrange();
+    CheckGrape();
+    
+    if (ApplePlaced && GrapePlaced && OrangePlaced){
+    System.out.println("\n\tToo many fruit on board!\n");
+    }
+    else {
+    System.out.println("\n\tFruit Placed!\n");
+    PlaceFruit();
+    }
+    }
+    
+    private void CheckApple(){
+    if (PosX[0] == AppleX && PosY[0] == AppleY){
+    score += apple_points;
+    length += 2;
+    ApplePlaced = false;
+    System.out.println("\n\tCrunch!");
+    }
+    }
+    
+    private void CheckOrange(){
+    if (PosX[0] == OrangeX && PosY[0] == OrangeY){
+    score += orange_points;
+    length += 3;
+    OrangePlaced = false;
+    System.out.println("\n\tChomp!");
+    }
+    }
+    
+    private void CheckGrape(){
+    if (PosX[0] == GrapeX && PosY[0] == GrapeY){
+    score += grape_points;
+    length++;
+    GrapePlaced = false;
+    System.out.println("\n\tNibble!");
+    
+    }
+    }
+    }*/
   
   private class Controls extends KeyAdapter {
 
