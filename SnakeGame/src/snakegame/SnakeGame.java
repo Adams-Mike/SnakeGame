@@ -119,8 +119,6 @@ private void displayWelcome() {
         //SnakeWindow displayWindow = new SnakeWindow();
         
         
-        
-        
         //myGame.displayWelcome();
         myGame.getName();
         myGame.displayName();
