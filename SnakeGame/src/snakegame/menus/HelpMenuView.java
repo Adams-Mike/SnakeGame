@@ -4,6 +4,7 @@
  */
 package snakegame.menus;
 
+import Exceptions.MenuException;
 import java.util.Scanner;
 import snakegame.homework.isail.SnakeError;
 
@@ -49,7 +50,7 @@ public abstract class HelpMenuView extends SuperMenu {
     
 
     // display the help menu and get the end users input selection
-    public void getInput() {       
+    public void getInput() throws MenuException {       
               
         String command;
         Scanner inFile = new Scanner(System.in);
@@ -81,13 +82,14 @@ public abstract class HelpMenuView extends SuperMenu {
                 case "Q": 
                     break;
                 default: 
-                    new SnakeError().displayError("Invalid selection. Please select a valid command.");
+                    throw new MenuException("incorrect selection");
             }
         } while (!command.contains("Q")); 
         
     }
 
         // displays the help menu
+    @Override
     public final void display() {
         System.out.println("\n\t===============================================================");
         System.out.println("\tHelp Menu: \n\tEnter the letter associated with one of the following commands:");
