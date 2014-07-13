@@ -37,12 +37,12 @@ public static boolean right = false;
 public static final int Width = 450;
 public static final int Height = 450;
 
-public static final int AllPositions = (Width * Height) / 100;
+public static final int AllPositions = (Width * Height) / 18;
 
 public static final int PosX[] = new int[AllPositions];
 public static final int PosY[] = new int[AllPositions];
 
-public static int length = 4;
+public static int length = 3;
 
 public static final int Square = 25;
 
@@ -75,7 +75,7 @@ public static Image GameOver;
 
 public static Timer timer;
 
-public static final int Step = 10000;
+public static final int Step = 100;
 
 public static boolean GrapePlaced = false;
 public static boolean OrangePlaced = false;

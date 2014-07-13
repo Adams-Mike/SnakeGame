@@ -63,7 +63,7 @@ public class GameBoard extends JPanel implements ActionListener{
   public GameBoard() {
       
       addKeyListener(new Controls());
-      setBackground(Color.black);
+      //setBackground(Color.black);
       setFocusable(true);
       setPreferredSize(new Dimension(Width, Height));
       ImportImages();
@@ -97,19 +97,19 @@ public class GameBoard extends JPanel implements ActionListener{
       }
         
       private void placeApple() {
-        int random = (int)(Math.random() * 30);
+        int random = (int)(Math.random() * 18);
         AppleX = random * Square;
         
         if (AppleX == OrangeX || AppleX == GrapeX){
-            random = (int)(Math.random() * 30);
+            random = (int)(Math.random() * 18);
             AppleX = random * Square;
         }
         
-        random = (int)(Math.random() * 30);
+        random = (int)(Math.random() * 18);
         AppleY = random * Square;
         
         if (AppleY == OrangeY || AppleY == GrapeY){
-            random = (int)(Math.random() * 30);
+            random = (int)(Math.random() * 18);
             AppleY = random * Square;
         }
         
@@ -117,19 +117,19 @@ public class GameBoard extends JPanel implements ActionListener{
       }
       
           private void placeGrape() {
-        int random = (int)(Math.random() * 30);
+        int random = (int)(Math.random() * 18);
         GrapeX = random * Square;
         
         if (GrapeX == OrangeX || GrapeX == GrapeX){
-            random = (int)(Math.random() * 30);
+            random = (int)(Math.random() * 18);
             GrapeX = random * Square;
         }
         
-        random = (int)(Math.random() * 30);
+        random = (int)(Math.random() * 18);
         GrapeY = random * Square;
         
         if (GrapeY == OrangeY || GrapeY == GrapeY){
-            random = (int)(Math.random() * 30);
+            random = (int)(Math.random() * 18);
             GrapeY = random * Square;
         }
         
@@ -137,20 +137,20 @@ public class GameBoard extends JPanel implements ActionListener{
     }  
       
          private void placeOrange() {
-          int random = (int)(Math.random() * 30);
+          int random = (int)(Math.random() * 18);
           OrangeX = random * Square;
           
           if (OrangeX == OrangeX || OrangeX == GrapeX){
-              random = (int)(Math.random() * 30);
+              random = (int)(Math.random() * 18);
               OrangeX = random * Square;
           }
           
-          random = (int)(Math.random() * 30);
+          random = (int)(Math.random() * 18);
           OrangeY = random * Square;
           
           if (OrangeY == OrangeY || OrangeY == GrapeY){
               
-              random = (int)(Math.random() * 30);
+              random = (int)(Math.random() * 18);
               OrangeY = random * Square;
           }
           
@@ -183,54 +183,48 @@ public class GameBoard extends JPanel implements ActionListener{
             MoveSnake();
         }
         
-        repaint();
+        this.repaint();
+        this.validate();
         
     }
     
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-
-        doDrawing(g);
+        displayGraphics(g);
     }
     
-    private void doDrawing(Graphics g) {
+    private void displayGraphics(Graphics g) {
         
         if (alive) {
             
             if (ApplePlaced){
                 g.drawImage(Apple, AppleX, AppleY, this);
                 //System.out.println("Apple Drawn!");
-                repaint();
             }
             
             if (GrapePlaced){
                 g.drawImage(Grape, GrapeX, GrapeY, this);
                 //System.out.println("Grape Drawn!");
-                repaint();
             }
             
             if (OrangePlaced){
                 g.drawImage(Orange, OrangeX, OrangeY, this);
                 //System.out.println("Orange Drawn!");
-                repaint();
             }
 
             
             for (int i = 0; i < Square; i++) {
                 if (i == 0) {
                     g.drawImage(SnakeHead, PosX[i], PosY[i], this);
-                    repaint();
                 } 
                 else {
                     g.drawImage(SnakeScale, PosX[i], PosY[i], this);
-                    repaint();
                 }
             }
 
             Toolkit.getDefaultToolkit().sync();
             g.dispose();
-            repaint();
 
         } else {
 
@@ -244,12 +238,12 @@ public class GameBoard extends JPanel implements ActionListener{
             CheckOrange();
             CheckGrape(); 
             
-            if (ApplePlaced && GrapePlaced && OrangePlaced){
-                System.out.println("\n\tToo many fruit on board!\n");
-            }
-            else {
+            if ((!ApplePlaced || !GrapePlaced) || !OrangePlaced){
                 System.out.println("\n\tFruit Placed!\n");
                 PlaceFruit();
+            }
+            else {
+                System.out.println("\n\tToo many fruit on board!\n");
             }
         }
         
@@ -336,15 +330,13 @@ public class GameBoard extends JPanel implements ActionListener{
     }
 
     private void gameOver(Graphics g) {
-        g.drawImage(GameOver, Height / 2, Width /2, this);
+        //g.drawImage(GameOver, Height / 2, Width /2, this);
     }
 
     private void ImportImages() {
         
         ImageIcon s = new ImageIcon("resources/body.png");
         SnakeScale = s.getImage();
-        
-        
         
         ImageIcon h = new ImageIcon("resources/head.png");
         SnakeHead = h.getImage();
@@ -414,6 +406,8 @@ public class GameBoard extends JPanel implements ActionListener{
     }
     }*/
   
+    
+    
   private class Controls extends KeyAdapter {
 
         @Override
