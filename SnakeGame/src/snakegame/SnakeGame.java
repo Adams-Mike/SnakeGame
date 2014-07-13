@@ -121,10 +121,6 @@ private void displayWelcome() {
             Error.displayErrorMsg(Arrays.toString(ex.getStackTrace()));
             
         }
-        
-        finally{
-            SnakeGame.close();
-        }
        /* SnakeGame myGame = new SnakeGame();
         Arena myGame2 = new Arena();
         Menu myGame3 = new Menu() {
