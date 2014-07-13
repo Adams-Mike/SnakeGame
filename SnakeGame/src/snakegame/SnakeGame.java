@@ -9,6 +9,7 @@ package snakegame;
 import java.awt.EventQueue;
 import Players.SuperPlayer;
 import java.awt.Image;
+import java.util.Arrays;
 import snakegame.homework.mike.SnakeLengthView;
 import snakegame.homework.isail.Score;
 import snakegame.homework.mike.PowerUps;
@@ -106,6 +107,7 @@ private void displayWelcome() {
     
     public static void main(String[] args) {
         
+        try{
         EventQueue.invokeLater(new Runnable() {
         @Override
         public void run() {
@@ -113,7 +115,16 @@ private void displayWelcome() {
             newFrame.setVisible(true);
         }
         });
+        }
+        catch (Throwable ex){
+            Error.displayErrorMsg("Unexpected Error: " + ex.getMessage());
+            Error.displayErrorMsg(Arrays.toString(ex.getStackTrace()));
+            
+        }
         
+        finally{
+            SnakeGame.close();
+        }
        /* SnakeGame myGame = new SnakeGame();
         Arena myGame2 = new Arena();
         Menu myGame3 = new Menu() {
