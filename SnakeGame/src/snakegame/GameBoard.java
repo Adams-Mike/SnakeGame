@@ -72,7 +72,7 @@ public class GameBoard extends JPanel implements ActionListener{
       
   }
  
-        void PlaceFruit() {
+        void PlaceFruit(){
         
         Random r = new Random();
         int random = r.nextInt((10 - 1) + 1) + 1;
@@ -234,9 +234,18 @@ public class GameBoard extends JPanel implements ActionListener{
     
     private void CheckFruit() {
             
+            
+        try{
             CheckApple();
             CheckOrange();
-            CheckGrape(); 
+            CheckGrape();
+            
+        }
+        catch (Throwable ex){
+            System.out.println("Error: " + ex.getMessage());
+        }
+     
+            
             
             if ((!ApplePlaced || !GrapePlaced) || !OrangePlaced){
                 System.out.println("\n\tFruit Placed!\n");
