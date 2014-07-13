@@ -6,21 +6,21 @@
 
 package snakegame;
 
-import java.awt.EventQueue;
+import Exceptions.MenuException;
 import Players.SuperPlayer;
+import java.awt.EventQueue;
 import java.awt.Image;
 import java.util.Arrays;
-import snakegame.homework.mike.SnakeLengthView;
-import snakegame.homework.isail.Score;
-import snakegame.homework.mike.PowerUps;
-import snakegame.homework.isail.SnakeInfo;
-import snakegame.homework.isail.Arena;
-
-import snakegame.menus.Menu;
-import snakegame.menus.HelpMenuView;
-
 import javax.swing.JFrame;
 import javax.swing.Timer;
+import snakegame.homework.isail.Arena;
+import snakegame.homework.isail.Score;
+import snakegame.homework.isail.SnakeInfo;
+import snakegame.homework.mike.PowerUps;
+import snakegame.homework.mike.SnakeLengthView;
+import snakegame.menus.HelpMenuView;
+
+import snakegame.menus.Menu;
 
 
 
@@ -105,7 +105,7 @@ private void displayWelcome() {
         
     }
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MenuException{
         
         try{
         EventQueue.invokeLater(new Runnable() {
@@ -117,8 +117,8 @@ private void displayWelcome() {
         });
         }
         catch (Throwable ex){
-            Error.displayErrorMsg("Unexpected Error: " + ex.getMessage());
-            Error.displayErrorMsg(Arrays.toString(ex.getStackTrace()));
+            System.out.println("Unexpected Error: " + ex.getMessage());
+            System.out.println(Arrays.toString(ex.getStackTrace()));
             
         }
        /* SnakeGame myGame = new SnakeGame();

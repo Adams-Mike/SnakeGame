@@ -6,7 +6,10 @@
 
 package snakegame.menus;
 
+import Exceptions.MenuException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -40,7 +43,7 @@ public abstract class Menu extends SuperMenu{
         System.out.println(Menu.info);
     }
     
-    public void getUserInput(){
+    public void getUserInput() throws NumberFormatException, MenuException {
         Scanner input = new Scanner(System.in);
         Menu.selection = input.next();
         
@@ -67,18 +70,21 @@ public abstract class Menu extends SuperMenu{
                     this.helpMenuView.getInput();
                     break;    
                 default:
-                    System.out.println("Incorrect Selection.\n Try again.\n\n");
                     Menu.selection = input.next();
                     upperSelection = selection.toUpperCase();
-                    break;
+                    throw new MenuException("\"Incorrect Selection.\\n Try again.\\n\\n\"");
             }
         }
                        
     }
     
-    public void displayMenu(){
+    public void displayMenu() throws MenuException{
         printMenuInfo();
-        getUserInput();        
+        try {        
+            getUserInput();
+        } catch (NumberFormatException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }       
 
     void selection() {
