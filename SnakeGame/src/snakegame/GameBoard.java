@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package snakegame;
 
 import java.awt.*;
@@ -12,71 +11,87 @@ import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
-
-
-import static snakegame.SnakeGame.Apple;
-import static snakegame.SnakeGame.ApplePlaced;
-import static snakegame.SnakeGame.AppleX;
-import static snakegame.SnakeGame.AppleY;
-import static snakegame.SnakeGame.GameOver;
-import static snakegame.SnakeGame.Grape;
-import static snakegame.SnakeGame.GrapePlaced;
-import static snakegame.SnakeGame.GrapeX;
-import static snakegame.SnakeGame.GrapeY;
-import static snakegame.SnakeGame.Height;
-import static snakegame.SnakeGame.Orange;
-import static snakegame.SnakeGame.OrangePlaced;
-import static snakegame.SnakeGame.OrangeX;
-import static snakegame.SnakeGame.OrangeY;
-import static snakegame.SnakeGame.PosX;
-import static snakegame.SnakeGame.PosY;
-import static snakegame.SnakeGame.SnakeHead;
-import static snakegame.SnakeGame.SnakeScale;
-import static snakegame.SnakeGame.Square;
-import static snakegame.SnakeGame.Step;
-import static snakegame.SnakeGame.Width;
-import static snakegame.SnakeGame.alive;
-import static snakegame.SnakeGame.apple_points;
-import static snakegame.SnakeGame.down;
-import static snakegame.SnakeGame.grape_points;
-import static snakegame.SnakeGame.left;
-import static snakegame.SnakeGame.length;
-import static snakegame.SnakeGame.orange_points;
-import static snakegame.SnakeGame.right;
 import static snakegame.SnakeGame.score;
-import static snakegame.SnakeGame.timer;
-import static snakegame.SnakeGame.up;
-
-
 import snakegame.enumerations.BoardStatusMessages;
-
 
 /**
  *
  * @author Michael
  */
-public class GameBoard extends JPanel implements ActionListener{
-      
+public class GameBoard extends JPanel implements ActionListener {
 
+    private boolean up = false;
+    private boolean down = false;
+    private boolean left = false;
+    private boolean right = false;
 
-  
-  public GameBoard() {
-      
-      addKeyListener(new Controls());
-      //setBackground(Color.black);
-      setFocusable(true);
-      setPreferredSize(new Dimension(Width, Height));
-      ImportImages();
-      InitGame();
-      
-      
-  }
- 
-        void PlaceFruit(){
-        
+    private final int Width = 450;
+    private final int Height = 450 + 16;
+
+    private final int AllPositions = (Width * Height) / 18;
+
+    private final int PosX[] = new int[AllPositions];
+    private final int PosY[] = new int[AllPositions];
+
+    private int length = 3;
+
+    private final int Square = 25;
+
+    private boolean alive = true;
+
+    private final double grape_points = 1;
+    private final double apple_points = 2.5;
+    private final double orange_points = 5;
+
+    private int AppleX = 0;
+    private int AppleY = 0;
+
+    private int OrangeX = 0;
+    private int OrangeY = 0;
+
+    private int GrapeX = 0;
+    private int GrapeY = 0;
+
+    private Image SnakeHead;
+    private Image SnakeScale;
+
+    private Image Apple;
+    private Image Grape;
+    private Image Orange;
+
+    private Timer timer;
+
+    long newTime = 0;
+    long oldTime = 0;
+    double fps = 0;
+    int frames = 0;
+    double timeCount = 0;
+    private boolean showFPS = false;
+
+    private int Step = 250;
+
+    private boolean GrapePlaced = false;
+    private boolean OrangePlaced = false;
+    private boolean ApplePlaced = false;
+    private boolean paused = false;
+
+    private boolean showHelp = true;
+
+    public GameBoard() {
+
+        addKeyListener(new Controls());
+        setBackground(Color.black);
+        setFocusable(true);
+        setPreferredSize(new Dimension(Width, Height));
+        ImportImages();
+        InitGame();
+    }
+
+    void PlaceFruit() {
+
         Random r = new Random();
         int random = r.nextInt((10 - 1) + 1) + 1;
-        
+
         switch (random) {
             case 1:
                 placeGrape();
@@ -88,231 +103,327 @@ public class GameBoard extends JPanel implements ActionListener{
             case 10:
                 placeGrape();
                 placeApple();
-                placeOrange();    
+                placeOrange();
                 break;
             default:
                 placeGrape();
                 break;
         }
-      }
-        
-      private void placeApple() {
-        int random = (int)(Math.random() * 18);
+    }
+
+    private void placeApple() {
+        int random = (int) (Math.random() * 18);
         AppleX = random * Square;
-        
-        if (AppleX == OrangeX || AppleX == GrapeX){
-            random = (int)(Math.random() * 18);
+
+        if (AppleX == OrangeX || AppleX == GrapeX) {
+            random = (int) (Math.random() * 18);
             AppleX = random * Square;
         }
-        
-        random = (int)(Math.random() * 18);
+
+        random = (int) (Math.random() * 18);
         AppleY = random * Square;
-        
-        if (AppleY == OrangeY || AppleY == GrapeY){
-            random = (int)(Math.random() * 18);
+
+        if (AppleY == OrangeY || AppleY == GrapeY) {
+            random = (int) (Math.random() * 18);
             AppleY = random * Square;
         }
-        
+
         ApplePlaced = true;
-      }
-      
-          private void placeGrape() {
-        int random = (int)(Math.random() * 18);
+    }
+
+    private void placeGrape() {
+        int random = (int) (Math.random() * 18);
         GrapeX = random * Square;
-        
-        if (GrapeX == OrangeX || GrapeX == GrapeX){
-            random = (int)(Math.random() * 18);
+
+        if (GrapeX == OrangeX || GrapeX == GrapeX) {
+            random = (int) (Math.random() * 18);
             GrapeX = random * Square;
         }
-        
-        random = (int)(Math.random() * 18);
+
+        random = (int) (Math.random() * 18);
         GrapeY = random * Square;
-        
-        if (GrapeY == OrangeY || GrapeY == GrapeY){
-            random = (int)(Math.random() * 18);
+
+        if (GrapeY == OrangeY || GrapeY == GrapeY) {
+            random = (int) (Math.random() * 18);
             GrapeY = random * Square;
         }
-        
+
         GrapePlaced = true;
-    }  
-      
-         private void placeOrange() {
-          int random = (int)(Math.random() * 18);
-          OrangeX = random * Square;
-          
-          if (OrangeX == OrangeX || OrangeX == GrapeX){
-              random = (int)(Math.random() * 18);
-              OrangeX = random * Square;
-          }
-          
-          random = (int)(Math.random() * 18);
-          OrangeY = random * Square;
-          
-          if (OrangeY == OrangeY || OrangeY == GrapeY){
-              
-              random = (int)(Math.random() * 18);
-              OrangeY = random * Square;
-          }
-          
-          OrangePlaced = true;
-      }
-         
-         
-  
-  
-  private void InitGame(){
-        
+    }
+
+    private void placeOrange() {
+        int random = (int) (Math.random() * 18);
+        OrangeX = random * Square;
+
+        if (OrangeX == OrangeX || OrangeX == GrapeX) {
+            random = (int) (Math.random() * 18);
+            OrangeX = random * Square;
+        }
+
+        random = (int) (Math.random() * 18);
+        OrangeY = random * Square;
+
+        if (OrangeY == OrangeY || OrangeY == GrapeY) {
+
+            random = (int) (Math.random() * 18);
+            OrangeY = random * Square;
+        }
+
+        OrangePlaced = true;
+    }
+
+    private void InitGame() {
+
+        setBackground(Color.black);
+        score = 0;
+        length = 3;
+        alive = true;
         for (int i = 0; i < length; i++) {
             PosX[i] = 225 + i * 25;
             PosY[i] = 225;
         }
-        
+
         PlaceFruit();
-        
         timer = new Timer(Step, this);
         timer.start();
-        
+
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+
         if (alive) {
             CheckFruit();
             Bite();
             MoveSnake();
         }
-        
-        this.repaint();
-        this.validate();
-        
+
+        repaint();
+
     }
-    
+
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         displayGraphics(g);
     }
-    
+
     private void displayGraphics(Graphics g) {
-        
+
+        oldTime = System.currentTimeMillis();
         if (alive) {
-            
-            if (ApplePlaced){
+            timer.start();
+            if (ApplePlaced) {
                 g.drawImage(Apple, AppleX, AppleY, this);
                 //System.out.println("Apple Drawn!");
             }
-            
-            if (GrapePlaced){
+
+            if (GrapePlaced) {
                 g.drawImage(Grape, GrapeX, GrapeY, this);
                 //System.out.println("Grape Drawn!");
             }
-            
-            if (OrangePlaced){
+
+            if (OrangePlaced) {
                 g.drawImage(Orange, OrangeX, OrangeY, this);
                 //System.out.println("Orange Drawn!");
             }
 
-            
             for (int i = 0; i < Square; i++) {
                 if (i == 0) {
                     g.drawImage(SnakeHead, PosX[i], PosY[i], this);
-                } 
-                else {
+                } else {
                     g.drawImage(SnakeScale, PosX[i], PosY[i], this);
                 }
             }
 
+            if (paused) {
+                pause(g);
+                timer.stop();
+            }
+
+            if (showFPS) {
+
+                long diff = (oldTime - newTime);
+                timeCount += diff;
+                frames++;
+                if (timeCount > 1000) {
+                    timeCount = 0;
+                    fps = frames;
+                    frames = 0;
+                }
+                FPS(g);
+            }
+
+            if (showHelp) {
+                help(g);
+            }
+
+            stats(g);
             Toolkit.getDefaultToolkit().sync();
             g.dispose();
+            newTime = System.currentTimeMillis();
 
         } else {
+            gameOver(g);
+        }
 
-            //gameOver(g);
-        }        
     }
-    
+
+    private void help(Graphics g) {
+
+        String msg1 = "Controls: WASD or Arrows";
+        String msg2 = "New Game: N\n";
+        String msg3 = "Display Help: H";
+        String msg4 = "Show FPS: F";
+        String msg5 = "Quit: ESC or Q";
+        String msg6 = "Faster: PG UP";
+        String msg7 = "Slower: PG DN";
+
+        Font small = new Font("SansSerif", Font.BOLD, 12);
+        FontMetrics metr = getFontMetrics(small);
+
+        g.setColor(Color.white);
+        g.setFont(small);
+        int i = 1;
+        g.drawString(msg1, 10, i * 15);
+        i++;
+        g.drawString(msg2, 10, i * 15);
+        i++;
+        g.drawString(msg4, 10, i * 15);
+        i++;
+        g.drawString(msg6, 10, i * 15);
+        i++;
+        g.drawString(msg7, 10, i * 15);
+        i++;
+        g.drawString(msg5, 10, i * 15);
+        i++;
+        i++;
+        g.drawString(msg3, 10, i * 15);
+        i++;
+
+    }
+
+    private void stats(Graphics g) {
+
+        String msg = "Score: " + score;
+        Font small = new Font("SansSerif", Font.BOLD, 12);
+        FontMetrics metr = getFontMetrics(small);
+
+        g.setColor(Color.red);
+        g.setFont(small);
+        g.drawString(msg, (Width - metr.stringWidth(msg)), Height);
+    }
+
+    private void FPS(Graphics g) {
+
+        String msg = "FPS: " + fps;
+        Font small = new Font("SansSerif", Font.BOLD, 12);
+        FontMetrics metr = getFontMetrics(small);
+
+        g.setColor(Color.red);
+        g.setFont(small);
+        g.drawString(msg, 0, Height);
+    }
+
+    private void pause(Graphics g) {
+        String msg = "Paused";
+        Font small = new Font("SansSerif", Font.BOLD, 25);
+        FontMetrics metr = getFontMetrics(small);
+
+        g.setColor(Color.white);
+        g.setFont(small);
+        g.drawString(msg, (Width - metr.stringWidth(msg)) / 2, Height / 2);
+    }
+
+    private void gameOver(Graphics g) {
+
+        String msg = "Game Over";
+        String displayScore = "Score: " + score;
+        Font small = new Font("SansSerif", Font.BOLD, 14);
+        Font large = new Font("SansSerif", Font.BOLD, 25);
+        FontMetrics largeMetr = getFontMetrics(large);
+        FontMetrics smallMetr = getFontMetrics(small);
+
+        g.setColor(Color.white);
+        g.setFont(large);
+        g.drawString(msg, (Width - largeMetr.stringWidth(msg)) / 2, Height / 2);
+        g.setFont(small);
+        g.drawString(displayScore, (Width - smallMetr.stringWidth(displayScore)) / 2, (Height / 2) + smallMetr.stringWidth(displayScore) / 2);
+
+    }
+
     private void CheckFruit() {
-            
-            
-        try{
+
+        try {
             CheckApple();
             CheckOrange();
             CheckGrape();
-            
-        }
-        catch (Throwable ex){
+
+        } catch (Throwable ex) {
             System.out.println("Error: " + ex.getMessage());
         }
-     
-            
-            
-            if ((!ApplePlaced || !GrapePlaced) || !OrangePlaced){
-                System.out.println("\n\tFruit Placed!\n");
-                PlaceFruit();
-            }
-            else {
-                System.out.println("\n\tToo many fruit on board!\n");
+
+        if (!OrangePlaced && !ApplePlaced && !GrapePlaced) {
+            //System.out.println("\n\tFruit Placed!\n");
+            PlaceFruit();
+        } else {
+            //System.out.println("\n\tToo many fruit on board!\n");
+        }
+    }
+
+    private void CheckApple() {
+        if (ApplePlaced) {
+            if (PosX[0] == AppleX && PosY[0] == AppleY) {
+                SnakeGame.score += apple_points * length;
+                length += 2;
+                ApplePlaced = false;
+                System.out.println("\n\tCrunch!");
             }
         }
-        
-        private void CheckApple(){            
-                if (PosX[0] == AppleX && PosY[0] == AppleY){
-                    SnakeGame.score += apple_points;
-                    length += 2;
-                    ApplePlaced = false;
-                    System.out.println("\n\tCrunch!");
-                }
-        }
-        
-        private void CheckOrange(){
-            if (PosX[0] == OrangeX && PosY[0] == OrangeY){
-                score += orange_points;
+    }
+
+    private void CheckOrange() {
+        if (OrangePlaced) {
+            if (PosX[0] == OrangeX && PosY[0] == OrangeY) {
+                score += orange_points * length;
                 length += 3;
                 OrangePlaced = false;
                 System.out.println("\n\tChomp!");
             }
         }
-        
-        private void CheckGrape(){
-            if (PosX[0] == GrapeX && PosY[0] == GrapeY){
-                score += grape_points;
+    }
+
+    private void CheckGrape() {
+        if (GrapePlaced) {
+            if (PosX[0] == GrapeX && PosY[0] == GrapeY) {
+                score += grape_points * length;
                 length++;
                 GrapePlaced = false;
                 System.out.println("\n\tNibble!");
-                
             }
         }
+    }
 
-    /*@Override
-    public void paint(Graphics g){
-    this.repaint();
-    }*/
-    
     private void Bite() {
-        for (int i = length; i > 0; i--){
-            if (((i <= 4 && (PosX[0] == PosX[i]))
-                    && PosY[0] == PosY[i])) {
+        for (int i = length; i > 0; i--) {
+            if ((PosY[0] == PosY[i]) && (i > 4) && (PosX[0] == PosX[i])) {
                 alive = false;
             }
         }
-        
-        if (PosX[0] > WIDTH){
+
+        if (PosX[0] > Width) {
             alive = false;
         }
-        if (PosY[0] > HEIGHT){
+        if (PosY[0] > Height) {
             alive = false;
         }
-        if (PosX[0] < 0){
+        if (PosX[0] < 0) {
             alive = false;
         }
-        if (PosX[0] < 0){
+        if (PosX[0] < 0) {
             alive = false;
         }
-        
-        
-        
-            
+
     }
 
     private void MoveSnake() {
@@ -320,109 +431,79 @@ public class GameBoard extends JPanel implements ActionListener{
             PosX[i] = PosX[i - 1];
             PosY[i] = PosY[i - 1];
         }
-        
-        if (up){
+
+        if (up) {
             PosY[0] -= Square;
         }
-        
-        if (down){
+
+        if (down) {
             PosY[0] += Square;
         }
-        
-        if (left){
+
+        if (left) {
             PosX[0] -= Square;
         }
-        
-        if (right){
+
+        if (right) {
             PosX[0] += Square;
         }
     }
 
-    private void gameOver(Graphics g) {
-        //g.drawImage(GameOver, Height / 2, Width /2, this);
-    }
-
     private void ImportImages() {
-        
-        ImageIcon s = new ImageIcon("resources/body.png");
+
+        ImageIcon s = new ImageIcon("resources/body2.png");
         SnakeScale = s.getImage();
-        
+
         ImageIcon h = new ImageIcon("resources/head.png");
         SnakeHead = h.getImage();
-        
+
         ImageIcon a = new ImageIcon("resources/apple.png");
         Apple = a.getImage();
-        
+
         ImageIcon g = new ImageIcon("resources/grape.png");
         Grape = g.getImage();
-        
+
         ImageIcon o = new ImageIcon("resources/orange.png");
         Orange = o.getImage();
-        
-        //ImageIcon t = new ImageIcon("resources/title.png");
-        //Splash = t.getImage();
-        
-        //ImageIcon i = new ImageIcon("resources/snake.png");
-        //Icon = i.getImage();
-        
-        //ImageIcon gg = new ImageIcon("resources/gameover.png");
-        //GameOver = gg.getImage();
+
     }
-  
-    /*private class CheckFruit {
-    
-    public CheckFruit() {
-    
-    CheckApple();
-    CheckOrange();
-    CheckGrape();
-    
-    if (ApplePlaced && GrapePlaced && OrangePlaced){
-    System.out.println("\n\tToo many fruit on board!\n");
+
+    private void pauseGame() {
+        paused = !paused;
+        if (!paused) {
+            timer.start();
+        }
     }
-    else {
-    System.out.println("\n\tFruit Placed!\n");
-    PlaceFruit();
+
+    private void setHelp() {
+        showHelp = !showHelp;
     }
+
+    private void setFPS() {
+        showFPS = !showFPS;
     }
-    
-    private void CheckApple(){
-    if (PosX[0] == AppleX && PosY[0] == AppleY){
-    score += apple_points;
-    length += 2;
-    ApplePlaced = false;
-    System.out.println("\n\tCrunch!");
+
+    private void faster() {
+        Step -= 50;
+        timer.stop();
+        timer.setDelay(Step);
+        timer.start();
     }
+
+    private void slower() {
+        Step += 50;
+        timer.stop();
+        timer.setDelay(Step);
+        timer.start();
+
     }
-    
-    private void CheckOrange(){
-    if (PosX[0] == OrangeX && PosY[0] == OrangeY){
-    score += orange_points;
-    length += 3;
-    OrangePlaced = false;
-    System.out.println("\n\tChomp!");
-    }
-    }
-    
-    private void CheckGrape(){
-    if (PosX[0] == GrapeX && PosY[0] == GrapeY){
-    score += grape_points;
-    length++;
-    GrapePlaced = false;
-    System.out.println("\n\tNibble!");
-    
-    }
-    }
-    }*/
-  
-    
-    
-  private class Controls extends KeyAdapter {
+
+    private class Controls extends KeyAdapter {
 
         @Override
         public void keyPressed(KeyEvent e) {
-            
-            switch(e.getKeyCode()){
+
+            switch (e.getKeyCode()) {
                 case KeyEvent.VK_UP:
                 case KeyEvent.VK_W:
                     Up();
@@ -439,43 +520,65 @@ public class GameBoard extends JPanel implements ActionListener{
                 case KeyEvent.VK_D:
                     Right();
                     break;
+                case KeyEvent.VK_N:
+                    timer.stop();
+                    InitGame();
+                    break;
+                case KeyEvent.VK_P:
+                case KeyEvent.VK_SPACE:
+                    pauseGame();
+                    break;
+                case KeyEvent.VK_ESCAPE:
+                case KeyEvent.VK_Q:
+                    System.exit(0);
+                    break;
+                case KeyEvent.VK_H:
+                    setHelp();
+                    break;
+                case KeyEvent.VK_F:
+                    setFPS();
+                    break;
+                case KeyEvent.VK_PAGE_DOWN:
+                    slower();
+                    break;
+                case KeyEvent.VK_PAGE_UP:
+                    faster();
                 default:
                     break;
-                    
             }
         }
-        private void Up(){
+
+        private void Up() {
             up = true;
             down = false;
             left = false;
             right = false;
             BoardStatusMessages.MOVINGUP.display();
         }
-        
-        private void Down(){
+
+        private void Down() {
             up = false;
             down = true;
             left = false;
             right = false;
             BoardStatusMessages.MOVINGDOWN.display();
         }
-        
-        private void Left(){
+
+        private void Left() {
             up = false;
             down = false;
             left = true;
             right = false;
             BoardStatusMessages.MOVINGLEFT.display();
         }
-        
-        private void Right(){
+
+        private void Right() {
             up = false;
             down = false;
             left = false;
             right = true;
             BoardStatusMessages.MOVINGRIGHT.display();
         }
-  }
-  
-}
+    }
 
+}
