@@ -270,36 +270,30 @@ public class GameBoard extends JPanel implements ActionListener {
     }
 
     private void help(Graphics g) {
-
+        String msg = "Menu:";
         String msg1 = "Controls: WASD or Arrows";
         String msg2 = "New Game: N\n";
-        String msg3 = "Display Help: H";
+        String msg3 = "Display Menu: M";
         String msg4 = "Show FPS: F";
         String msg5 = "Quit: ESC or Q";
         String msg6 = "Faster: PG UP";
         String msg7 = "Slower: PG DN";
 
         Font small = new Font("SansSerif", Font.BOLD, 12);
-        FontMetrics metr = getFontMetrics(small);
+        Font large = new Font("SansSerif", Font.BOLD, 14);
 
         g.setColor(Color.white);
+        g.setFont(large);
+
+        g.drawString(msg, 10, 135);
         g.setFont(small);
-        int i = 1;
-        g.drawString(msg1, 10, i * 15);
-        i++;
-        g.drawString(msg2, 10, i * 15);
-        i++;
-        g.drawString(msg4, 10, i * 15);
-        i++;
-        g.drawString(msg6, 10, i * 15);
-        i++;
-        g.drawString(msg7, 10, i * 15);
-        i++;
-        g.drawString(msg5, 10, i * 15);
-        i++;
-        i++;
-        g.drawString(msg3, 10, i * 15);
-        i++;
+        g.drawString(msg1, 10, 150);
+        g.drawString(msg2, 10, 165);
+        g.drawString(msg4, 10, 180);
+        g.drawString(msg6, 10, 195);
+        g.drawString(msg7, 10, 210);
+        g.drawString(msg5, 10, 225);
+        g.drawString(msg3, 10, 240);
 
     }
 
@@ -309,9 +303,30 @@ public class GameBoard extends JPanel implements ActionListener {
         Font small = new Font("SansSerif", Font.BOLD, 12);
         FontMetrics metr = getFontMetrics(small);
 
+        String speed = "";
+        if (Step == 100) {
+            speed = "Speed: LUDICROUS SPEED!";
+        }
+        if (Step == 150) {
+            speed = "Speed: Fast";
+        }
+        if (Step == 200) {
+            speed = "Speed: Medium";
+        }
+        if (Step == 250) {
+            speed = "Speed: Slow";
+        }
+        if (Step > 250) {
+            speed = "Speed: Molasses";
+        }
+
+        String SnakeLength = "Length: " + length;
+
         g.setColor(Color.red);
         g.setFont(small);
-        g.drawString(msg, (Width - metr.stringWidth(msg)), Height);
+        g.drawString(SnakeLength, 10, Height - 15);
+        g.drawString(speed, Width - metr.stringWidth(speed), Height);
+        g.drawString(msg, 10, Height);
     }
 
     private void FPS(Graphics g) {
@@ -322,7 +337,7 @@ public class GameBoard extends JPanel implements ActionListener {
 
         g.setColor(Color.red);
         g.setFont(small);
-        g.drawString(msg, 0, Height);
+        g.drawString(msg, Width - metr.stringWidth(msg), 15);
     }
 
     private void pause(Graphics g) {
@@ -532,7 +547,7 @@ public class GameBoard extends JPanel implements ActionListener {
                 case KeyEvent.VK_Q:
                     System.exit(0);
                     break;
-                case KeyEvent.VK_H:
+                case KeyEvent.VK_M:
                     setHelp();
                     break;
                 case KeyEvent.VK_F:
