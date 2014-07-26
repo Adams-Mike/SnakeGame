@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package snakegame.enumerations;
 
 /**
@@ -11,6 +10,7 @@ package snakegame.enumerations;
  * @author Michael
  */
 public enum BoardStatusMessages {
+
     NEWGAME("Starting new Game"),
     NEWWINDOW("new window opened"),
     QUITTER("DONT QUIT"),
@@ -20,18 +20,18 @@ public enum BoardStatusMessages {
     MOVINGDOWN("Now Moving down"),
     MOVINGLEFT("Now Moving left"),
     MOVINGRIGHT("Now Moving right");
-    
+
     String message;
-    
-    private BoardStatusMessages(String message){
+
+    private BoardStatusMessages(String message) {
         this.message = message;
     }
-    
-    public String getMessage(){
+
+    public String getMessage() {
         return message;
     }
-    
-    public void display(){
+
+    public void display() {
         System.out.println(this.message);
     }
 }

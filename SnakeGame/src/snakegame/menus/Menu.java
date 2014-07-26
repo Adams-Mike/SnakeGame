@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package snakegame.menus;
 
 import Exceptions.MenuException;
@@ -15,8 +14,8 @@ import java.util.logging.Logger;
  *
  * @author Michael
  */
-public abstract class Menu extends SuperMenu{
-   
+public abstract class Menu extends SuperMenu {
+
     private final HelpMenuView helpMenuView = new HelpMenuView() {
 
         @Override
@@ -34,26 +33,26 @@ public abstract class Menu extends SuperMenu{
             throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
     };
-    
+
     public Menu() {
         Menu.selection = " ";
     }
-    
-    public void printMenuInfo(){
+
+    public void printMenuInfo() {
         System.out.println(Menu.info);
     }
-    
+
     public void getUserInput() throws NumberFormatException, MenuException {
         Scanner input = new Scanner(System.in);
         Menu.selection = input.next();
-        
+
         String upperSelection = selection.toUpperCase();
-        
+
         boolean correct;
         correct = true;
-        
+
         while (correct) {
-            switch (upperSelection){
+            switch (upperSelection) {
                 case "N":
                     System.out.println("This Should start a new game eventually\n");
                     correct = false;
@@ -68,24 +67,24 @@ public abstract class Menu extends SuperMenu{
                     break;
                 case "H":
                     this.helpMenuView.getInput();
-                    break;    
+                    break;
                 default:
                     Menu.selection = input.next();
                     upperSelection = selection.toUpperCase();
                     throw new MenuException("\"Incorrect Selection.\\n Try again.\\n\\n\"");
             }
         }
-                       
+
     }
-    
-    public void displayMenu() throws MenuException{
+
+    public void displayMenu() throws MenuException {
         printMenuInfo();
-        try {        
+        try {
             getUserInput();
         } catch (NumberFormatException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }       
+    }
 
     void selection() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

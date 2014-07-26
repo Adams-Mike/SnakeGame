@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package snakegame.interfaces;
 
 /**
@@ -11,7 +10,7 @@ package snakegame.interfaces;
  * @author user
  */
 public interface EnterInfo {
-  
+
     public static class enterinfo {
 
         public enterinfo() {

@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package snakegame.interfaces;
 
 /**
@@ -13,7 +12,10 @@ package snakegame.interfaces;
 public interface DisplayInfo {
 
     void displayHelpBoarder();
+
     void display();
+
     void showSomeInfo();
+
     void doSomeStuff();
 }

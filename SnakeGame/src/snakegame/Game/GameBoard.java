@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package snakegame.GameBoard;
+package snakegame.Game;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -76,7 +76,7 @@ public class GameBoard extends JPanel implements ActionListener {
     private boolean ApplePlaced = false;
     private boolean paused = false;
 
-    private boolean showHelp = true;
+    private boolean showHelp = false;
 
     public GameBoard() {
 
@@ -255,9 +255,7 @@ public class GameBoard extends JPanel implements ActionListener {
                 FPS(g);
             }
 
-            if (showHelp) {
                 help(g);
-            }
 
             stats(g);
             Toolkit.getDefaultToolkit().sync();
@@ -271,17 +269,8 @@ public class GameBoard extends JPanel implements ActionListener {
     }
 
     private void help(Graphics g) {
-        
-        
-        String msg = "Menu:";
-        String msg1 = "Controls: WASD or Arrows";
-        String msg2 = "New Game: N\n";
-        String msg3 = "Display Menu: M";
-        String msg4 = "Show FPS: F";
-        String msg5 = "Quit: ESC or Q";
-        String msg6 = "Faster: PG UP";
-        String msg7 = "Slower: PG DN";
-        String msg8 = "Pause: SPACE or P";
+
+        String msg, msg1, msg2, msg3, msg4, msg5, msg6, msg7, msg8;
 
         Font small = new Font("SansSerif", Font.BOLD, 12);
         Font large = new Font("SansSerif", Font.BOLD, 14);
@@ -289,17 +278,31 @@ public class GameBoard extends JPanel implements ActionListener {
         g.setColor(Color.white);
         g.setFont(large);
 
-        g.drawString(msg, 10, 135);
-        g.setFont(small);
-        g.drawString(msg1, 10, 150);
-        g.drawString(msg2, 10, 165);
-        g.drawString(msg4, 10, 180);
-        g.drawString(msg6, 10, 195);
-        g.drawString(msg7, 10, 210);
-        g.drawString(msg8, 10, 225);
-        g.drawString(msg5, 10, 240);
-        g.drawString(msg3, 10, 255);
+        if (showHelp == false) {
+            msg = "Show Menu: M";
+            g.drawString(msg, 10, 135);
+        } else {
+            msg = "Menu:";
+            msg1 = "Controls: WASD or Arrows";
+            msg2 = "New Game: N\n";
+            msg3 = "Hide Menu: M";
+            msg4 = "Show FPS: F";
+            msg5 = "Quit: ESC or Q";
+            msg6 = "Faster: PG UP";
+            msg7 = "Slower: PG DN";
+            msg8 = "Pause: SPACE or P";
 
+            g.drawString(msg, 10, 135);
+            g.setFont(small);
+            g.drawString(msg1, 10, 150);
+            g.drawString(msg2, 10, 165);
+            g.drawString(msg4, 10, 180);
+            g.drawString(msg6, 10, 195);
+            g.drawString(msg7, 10, 210);
+            g.drawString(msg8, 10, 225);
+            g.drawString(msg5, 10, 240);
+            g.drawString(msg3, 10, 255);
+        }
     }
 
     private void stats(Graphics g) {

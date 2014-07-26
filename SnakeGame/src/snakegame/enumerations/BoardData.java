@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package snakegame.enumerations;
 
 /**
@@ -11,7 +10,7 @@ package snakegame.enumerations;
  * @author Michael
  */
 public enum BoardData {
-    
+
     RUNNING, ALIVE, FRUITS;
-    
+
 }

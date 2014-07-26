@@ -54,65 +54,66 @@ public class SnakeGame extends JFrame {
             System.out.println(Arrays.toString(ex.getStackTrace()));
 
         }
-        /* SnakeGame myGame = new SnakeGame();
-         Arena myGame2 = new Arena();
-         Menu myGame3 = new Menu() {
+    }
+    /* SnakeGame myGame = new SnakeGame();
+     Arena myGame2 = new Arena();
+     Menu myGame3 = new Menu() {
 
-         @Override
-         public void displayHelpBoarder() {
-         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-         }
-         };
-         PowerUps myGame4 = new PowerUps();
-         Score myGame5 = new Score();
-         SnakeInfo myGame6 = new SnakeInfo();
-         HelpMenuView myGame7 = new HelpMenuView() {
+     @Override
+     public void displayHelpBoarder() {
+     //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     }
+     };
+     PowerUps myGame4 = new PowerUps();
+     Score myGame5 = new Score();
+     SnakeInfo myGame6 = new SnakeInfo();
+     HelpMenuView myGame7 = new HelpMenuView() {
 
-         @Override
-         public void displayHelpBoarder() {
-         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-         }
-         };
-         SnakeLengthView myGame8 = new SnakeLengthView();
-         SuperPlayer myGame9 = new SuperPlayer();
+     @Override
+     public void displayHelpBoarder() {
+     //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     }
+     };
+     SnakeLengthView myGame8 = new SnakeLengthView();
+     SuperPlayer myGame9 = new SuperPlayer();
         
-         //Board game1 = new Board();
+     //Board game1 = new Board();
         
-         //SnakeWindow displayWindow = new SnakeWindow();
-         //ImportImages import = new ImportImages();
+     //SnakeWindow displayWindow = new SnakeWindow();
+     //ImportImages import = new ImportImages();
         
         
-         //myGame.displayWelcome();
-         myGame.getName();
-         myGame.displayName();
-         SuperPlayer.PlayersName();
-         myGame3.displayMenu();
-         myGame5.difficultyLevel();
-         myGame2.displayArena();
-         myGame4.runPowerUps();
-         myGame5.scoreCalculator();
-         myGame5.highScores();
-         myGame6.getSnakeName();
-         myGame6.displaySnake();
-         myGame6.getSnakeSize();
-         myGame8.snakeLength();
+     //myGame.displayWelcome();
+     myGame.getName();
+     myGame.displayName();
+     SuperPlayer.PlayersName();
+     myGame3.displayMenu();
+     myGame5.difficultyLevel();
+     myGame2.displayArena();
+     myGame4.runPowerUps();
+     myGame5.scoreCalculator();
+     myGame5.highScores();
+     myGame6.getSnakeName();
+     myGame6.displaySnake();
+     myGame6.getSnakeSize();
+     myGame8.snakeLength();
     
-         }     
-         /*    public void getName(){
-         Scanner input = new Scanner(System.in);
-         System.out.println(this.instructions);
-         System.out.println("Please enter your name:  ");
-         this.name = input.next();
+     }     
+     /*    public void getName(){
+     Scanner input = new Scanner(System.in);
+     System.out.println(this.instructions);
+     System.out.println("Please enter your name:  ");
+     this.name = input.next();
     
-         }*/
-    }
-
-    public void displayName() {
-        System.out.println("\nWelcome " + this.name + "\n");
-
-    }
-
-    void instructions() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+     }*/
+//    }
+//
+//    public void displayName() {
+//        System.out.println("\nWelcome " + this.name + "\n");
+//
+//    }
+//
+//    void instructions() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 }

@@ -4,9 +4,9 @@
  */
 package snakegame.menus;
 
-public abstract class HelpMenuControl extends SuperMenu  {
-    
+public abstract class HelpMenuControl extends SuperMenu {
+
     public HelpMenuControl() {
         super();
-    } 
+    }
 }

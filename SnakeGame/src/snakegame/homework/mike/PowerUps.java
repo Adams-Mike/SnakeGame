@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package snakegame.homework.mike;
 
 /**
@@ -11,25 +10,24 @@ package snakegame.homework.mike;
  * @author Michael
  */
 public class PowerUps {
-    
+
     boolean invulnerability;
     double speedMod;
     int healMe;
-    
-    public void cheatMode(){
+
+    public void cheatMode() {
         System.out.println("You now have invulnerability\n");
         this.invulnerability = true;
     }
-    
+
     public void superSpeed() {
         System.out.println("You now have super speed\n");
         this.speedMod = 4;
     }
-    
-    public void runPowerUps(){
+
+    public void runPowerUps() {
         cheatMode();
         superSpeed();
     }
-           
-    
+
 }

@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Exceptions;
 
 /**
@@ -28,12 +27,12 @@ public class BoardExceptions extends Exception {
     public BoardExceptions(String msg) {
         super(msg);
     }
-    
-    public BoardExceptions(String msg, Throwable cause){
+
+    public BoardExceptions(String msg, Throwable cause) {
         super(msg, cause);
     }
-    
-    public BoardExceptions(Throwable cause){
+
+    public BoardExceptions(Throwable cause) {
         super(cause);
     }
 }

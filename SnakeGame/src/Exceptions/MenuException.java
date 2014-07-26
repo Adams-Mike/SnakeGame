@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Exceptions;
 
 /**
@@ -28,12 +27,12 @@ public class MenuException extends Exception {
     public MenuException(String msg) {
         super(msg);
     }
-    
-    public MenuException(String msg, Throwable cause){
+
+    public MenuException(String msg, Throwable cause) {
         super(msg, cause);
     }
-    
-    public MenuException(Throwable cause){
+
+    public MenuException(Throwable cause) {
         super(cause);
     }
 }
