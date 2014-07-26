@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package snakegame;
+package snakegame.GameBoard;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -11,6 +11,7 @@ import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
+import snakegame.SnakeGame;
 import static snakegame.SnakeGame.score;
 import snakegame.enumerations.BoardStatusMessages;
 
@@ -270,6 +271,8 @@ public class GameBoard extends JPanel implements ActionListener {
     }
 
     private void help(Graphics g) {
+        
+        
         String msg = "Menu:";
         String msg1 = "Controls: WASD or Arrows";
         String msg2 = "New Game: N\n";
@@ -278,6 +281,7 @@ public class GameBoard extends JPanel implements ActionListener {
         String msg5 = "Quit: ESC or Q";
         String msg6 = "Faster: PG UP";
         String msg7 = "Slower: PG DN";
+        String msg8 = "Pause: SPACE or P";
 
         Font small = new Font("SansSerif", Font.BOLD, 12);
         Font large = new Font("SansSerif", Font.BOLD, 14);
@@ -292,8 +296,9 @@ public class GameBoard extends JPanel implements ActionListener {
         g.drawString(msg4, 10, 180);
         g.drawString(msg6, 10, 195);
         g.drawString(msg7, 10, 210);
-        g.drawString(msg5, 10, 225);
-        g.drawString(msg3, 10, 240);
+        g.drawString(msg8, 10, 225);
+        g.drawString(msg5, 10, 240);
+        g.drawString(msg3, 10, 255);
 
     }
 

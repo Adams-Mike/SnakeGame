@@ -5,6 +5,7 @@
  */
 package snakegame;
 
+import snakegame.GameBoard.GameBoard;
 import Exceptions.MenuException;
 import java.awt.EventQueue;
 import java.util.Arrays;
