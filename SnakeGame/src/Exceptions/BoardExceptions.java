@@ -11,11 +11,8 @@ package Exceptions;
  */
 public class BoardExceptions extends Exception {
 
-    /**
-     * Creates a new instance of <code>BoardExceptions</code> without detail
-     * message.
-     */
     public BoardExceptions() {
+
     }
 
     /**

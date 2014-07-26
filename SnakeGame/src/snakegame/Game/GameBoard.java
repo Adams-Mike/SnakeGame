@@ -5,9 +5,12 @@
  */
 package snakegame.Game;
 
+import Exceptions.BoardExceptions;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -27,7 +30,7 @@ public class GameBoard extends JPanel implements ActionListener {
     private boolean right = false;
 
     private final int Width = 450;
-    private final int Height = 450 + 16;
+    private final int Height = 450;
 
     private final int AllPositions = (Width * Height) / 18;
 
@@ -194,13 +197,16 @@ public class GameBoard extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         if (alive) {
-            CheckFruit();
-            Bite();
-            MoveSnake();
+            try {
+                CheckFruit();
+                Bite();
+                MoveSnake();
+            } catch (BoardExceptions ex) {
+                Logger.getLogger(GameBoard.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
         repaint();
-
     }
 
     @Override
@@ -255,7 +261,7 @@ public class GameBoard extends JPanel implements ActionListener {
                 FPS(g);
             }
 
-                help(g);
+            help(g);
 
             stats(g);
             Toolkit.getDefaultToolkit().sync();
@@ -427,26 +433,35 @@ public class GameBoard extends JPanel implements ActionListener {
         }
     }
 
-    private void Bite() {
-        for (int i = length; i > 0; i--) {
-            if ((PosY[0] == PosY[i]) && (i > 4) && (PosX[0] == PosX[i])) {
+    private void Bite() throws BoardExceptions {
+        String youreDead = "You just died\n";
+        try {
+            for (int i = length; i > 0; i--) {
+                if ((PosY[0] == PosY[i]) && (i > 4) && (PosX[0] == PosX[i])) {
+                    alive = false;
+                }
+            }
+
+            if (PosX[0] > Width) {
                 alive = false;
             }
+            if (PosY[0] > Height) {
+                alive = false;
+            }
+            if (PosX[0] < 0) {
+                alive = false;
+            }
+            if (PosX[0] < 0) {
+                alive = false;
+            }
+            
+            if (alive == false){
+                throw new BoardExceptions("You're Dead");
+            }
+            
+        } catch (BoardExceptions e) {
+            System.out.println(e.getMessage());
         }
-
-        if (PosX[0] > Width) {
-            alive = false;
-        }
-        if (PosY[0] > Height) {
-            alive = false;
-        }
-        if (PosX[0] < 0) {
-            alive = false;
-        }
-        if (PosX[0] < 0) {
-            alive = false;
-        }
-
     }
 
     private void MoveSnake() {
